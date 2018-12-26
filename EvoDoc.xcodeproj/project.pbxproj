@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		549D5B7A21D414CA00A7991B /* bi-ios-evodoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bi-ios-evodoc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		549D5B7A21D414CA00A7991B /* EvoDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvoDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549D5B7D21D414CA00A7991B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549D5B7F21D414CA00A7991B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		549D5B8221D414CA00A7991B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,11 +42,12 @@
 				549D5B7B21D414CA00A7991B /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		549D5B7B21D414CA00A7991B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				549D5B7A21D414CA00A7991B /* bi-ios-evodoc.app */,
+				549D5B7A21D414CA00A7991B /* EvoDoc.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +55,9 @@
 		549D5B7C21D414CA00A7991B /* bi-ios-evodoc */ = {
 			isa = PBXGroup;
 			children = (
+				549D5B9121D4186000A7991B /* Controller */,
+				549D5B9021D4185600A7991B /* View */,
+				549D5B8F21D4184E00A7991B /* Model */,
 				549D5B7D21D414CA00A7991B /* AppDelegate.swift */,
 				549D5B7F21D414CA00A7991B /* ViewController.swift */,
 				549D5B8121D414CA00A7991B /* Main.storyboard */,
@@ -64,12 +68,33 @@
 			path = "bi-ios-evodoc";
 			sourceTree = "<group>";
 		};
+		549D5B8F21D4184E00A7991B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		549D5B9021D4185600A7991B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		549D5B9121D4186000A7991B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		549D5B7921D414CA00A7991B /* bi-ios-evodoc */ = {
+		549D5B7921D414CA00A7991B /* EvoDoc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 549D5B8C21D414CC00A7991B /* Build configuration list for PBXNativeTarget "bi-ios-evodoc" */;
+			buildConfigurationList = 549D5B8C21D414CC00A7991B /* Build configuration list for PBXNativeTarget "EvoDoc" */;
 			buildPhases = (
 				549D5B7621D414CA00A7991B /* Sources */,
 				549D5B7721D414CA00A7991B /* Frameworks */,
@@ -79,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = "bi-ios-evodoc";
+			name = EvoDoc;
 			productName = "bi-ios-evodoc";
-			productReference = 549D5B7A21D414CA00A7991B /* bi-ios-evodoc.app */;
+			productReference = 549D5B7A21D414CA00A7991B /* EvoDoc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 549D5B7521D414CA00A7991B /* Build configuration list for PBXProject "bi-ios-evodoc" */;
+			buildConfigurationList = 549D5B7521D414CA00A7991B /* Build configuration list for PBXProject "EvoDoc" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				549D5B7921D414CA00A7991B /* bi-ios-evodoc */,
+				549D5B7921D414CA00A7991B /* EvoDoc */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +340,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		549D5B7521D414CA00A7991B /* Build configuration list for PBXProject "bi-ios-evodoc" */ = {
+		549D5B7521D414CA00A7991B /* Build configuration list for PBXProject "EvoDoc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				549D5B8A21D414CC00A7991B /* Debug */,
@@ -324,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		549D5B8C21D414CC00A7991B /* Build configuration list for PBXNativeTarget "bi-ios-evodoc" */ = {
+		549D5B8C21D414CC00A7991B /* Build configuration list for PBXNativeTarget "EvoDoc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				549D5B8D21D414CC00A7991B /* Debug */,
