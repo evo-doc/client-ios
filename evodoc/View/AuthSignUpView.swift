@@ -8,25 +8,26 @@
 
 import UIKit
 
-class AuthSignInView: UIView {
+class AuthSignUpView: UIView {
     
-    var buttonSignIn: UIButton!;
-    var labelSignUp: UILabel!;
+    var buttonSignUp: UIButton!;
+    var labelSignIn: UILabel!;
     
     override init(frame: CGRect) {
         super.init(frame: frame);
         
         // Create items
-        let login = UIUtilities.createInputLight("E-mail / Username");
+        let email = UIUtilities.createInputLight("E-mail");
+        let username = UIUtilities.createInputLight("Username");
         let pass = UIUtilities.createInputLight("Password");
-        self.buttonSignIn = UIUtilities.createButtonDark(title: "Sign In");
-        self.labelSignUp = UIUtilities.createLabelLight("Don't have an account? Sign Up!");
+        self.buttonSignUp = UIUtilities.createButtonDark(title: "Sign Up");
+        self.labelSignIn = UIUtilities.createLabelLight("Have an account? Sign In!");
         let bg = UIImageView(image: UIImage(named: "Logotype"));
         bg.contentMode = UIView.ContentMode.scaleAspectFit;
         
         // Create stack
         let stack = UIUtilities.createVerStack(views:
-            bg, login, pass, self.buttonSignIn, self.labelSignUp
+            bg, email, username, pass, self.buttonSignUp, self.labelSignIn
         );
         self.addSubview(stack)
         

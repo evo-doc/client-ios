@@ -9,17 +9,17 @@
 import UIKit
 import SnapKit
 
-class AuthSignInController: UIViewController {
+class AuthSignUpController: UIViewController {
     
-    let authSignInView = AuthSignInView();
+    let authSignUpView = AuthSignUpView();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         view.backgroundColor = UIPalette.background;
         
         // View
-        view.addSubview(authSignInView)
-        authSignInView.snp.makeConstraints{ (make) in
+        view.addSubview(authSignUpView)
+        authSignUpView.snp.makeConstraints{ (make) in
             make.edges.equalToSuperview()
         }
         self.setGestures();
@@ -42,7 +42,7 @@ class AuthSignInController: UIViewController {
         // Rotation enable
         Utilities.rotationEnable()
     }
-
+    
     
     // ---------------------------------------------------------------------------------------------
     // Gestures
@@ -50,24 +50,24 @@ class AuthSignInController: UIViewController {
     
     func setGestures(){
         // Sign Up
-        let gestSignUp = UITapGestureRecognizer(target: self, action: #selector(self.gotoSignUp))
-        self.authSignInView.labelSignUp.isUserInteractionEnabled = true;
-        self.authSignInView.labelSignUp.addGestureRecognizer(gestSignUp);
+        let gestSignUp = UITapGestureRecognizer(target: self, action: #selector(self.gotoSignIn))
+        self.authSignUpView.labelSignIn.isUserInteractionEnabled = true;
+        self.authSignUpView.labelSignIn.addGestureRecognizer(gestSignUp);
         
         // Sign In
-        let gestSignIn = UITapGestureRecognizer(target: self, action: #selector(self.sendSignIn))
-        self.authSignInView.buttonSignIn.isUserInteractionEnabled = true;
-        self.authSignInView.buttonSignIn.addGestureRecognizer(gestSignIn);
+        let gestSignIn = UITapGestureRecognizer(target: self, action: #selector(self.sendSignUp))
+        self.authSignUpView.buttonSignUp.isUserInteractionEnabled = true;
+        self.authSignUpView.buttonSignUp.addGestureRecognizer(gestSignIn);
     }
     
-    @objc func gotoSignUp(sender: UITapGestureRecognizer) {
-        self.navigationController?.pushViewController(AuthSignUpController(), animated: false);
+    @objc func gotoSignIn(sender: UITapGestureRecognizer) {
+        self.navigationController?.popViewController(animated: false)
     }
     
-    @objc func sendSignIn(sender: UITapGestureRecognizer) {
+    @objc func sendSignUp(sender: UITapGestureRecognizer) {
         // TODO: Server-Client authorization
-        print("Send login & pass");
-        self.navigationController?.pushViewController(DashboardController(), animated: true);
+        print("Send email, username & pass")
+        self.navigationController?.pushViewController(DashboardController(), animated: true)
     }
 }
 

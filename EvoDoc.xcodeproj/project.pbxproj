@@ -14,6 +14,8 @@
 		5445738E22078CA7009F2416 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738D22078CA7009F2416 /* UIUtilities.swift */; };
 		544573902207A185009F2416 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738F2207A185009F2416 /* Utilities.swift */; };
 		544573922207AAB9009F2416 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544573912207AAB9009F2416 /* DashboardController.swift */; };
+		544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544573932207ACF4009F2416 /* AuthSignUpController.swift */; };
+		544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544573952207AD0D009F2416 /* AuthSignUpView.swift */; };
 		549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7D21D414CA00A7991B /* AppDelegate.swift */; };
 		549D5B8021D414CA00A7991B /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7F21D414CA00A7991B /* RootController.swift */; };
 		549D5B8521D414CC00A7991B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8421D414CC00A7991B /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		5445738D22078CA7009F2416 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		5445738F2207A185009F2416 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		544573912207AAB9009F2416 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		544573932207ACF4009F2416 /* AuthSignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpController.swift; sourceTree = "<group>"; };
+		544573952207AD0D009F2416 /* AuthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpView.swift; sourceTree = "<group>"; };
 		549D5B7A21D414CA00A7991B /* EvoDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvoDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549D5B7D21D414CA00A7991B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549D5B7F21D414CA00A7991B /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		549D5B9021D4185600A7991B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
 				5445738B2207886F009F2416 /* AuthSignInView.swift */,
 			);
 			path = View;
@@ -126,6 +131,7 @@
 			children = (
 				549D5B7F21D414CA00A7991B /* RootController.swift */,
 				544573912207AAB9009F2416 /* DashboardController.swift */,
+				544573932207ACF4009F2416 /* AuthSignUpController.swift */,
 				5445738622076D35009F2416 /* AuthSignInController.swift */,
 			);
 			path = Controller;
@@ -260,11 +266,13 @@
 			files = (
 				5445738A22077940009F2416 /* UIPalette.swift in Sources */,
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
+				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
 				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
 				5445738E22078CA7009F2416 /* UIUtilities.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5445738122075682009F2416 /* EmptyModel.swift in Sources */,
 				544573902207A185009F2416 /* Utilities.swift in Sources */,
+				544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
 			);
