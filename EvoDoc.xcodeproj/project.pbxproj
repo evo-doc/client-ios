@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5445738122075682009F2416 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* EmptyModel.swift */; };
+		544573832207569F009F2416 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544573822207569F009F2416 /* EmptyView.swift */; };
+		54457385220756AF009F2416 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54457384220756AF009F2416 /* EmptyController.swift */; };
 		549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7D21D414CA00A7991B /* AppDelegate.swift */; };
-		549D5B8021D414CA00A7991B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7F21D414CA00A7991B /* ViewController.swift */; };
-		549D5B8321D414CA00A7991B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8121D414CA00A7991B /* Main.storyboard */; };
+		549D5B8021D414CA00A7991B /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7F21D414CA00A7991B /* RootController.swift */; };
 		549D5B8521D414CC00A7991B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8421D414CC00A7991B /* Assets.xcassets */; };
 		549D5B8821D414CC00A7991B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */; };
+		925F6BAE140A671DFEACB28D /* Pods_EvoDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2BFE76F5AC2B6D14839743 /* Pods_EvoDoc.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
+		5445738022075682009F2416 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
+		544573822207569F009F2416 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		54457384220756AF009F2416 /* EmptyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
 		549D5B7A21D414CA00A7991B /* EvoDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvoDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549D5B7D21D414CA00A7991B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		549D5B7F21D414CA00A7991B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		549D5B8221D414CA00A7991B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		549D5B7F21D414CA00A7991B /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		549D5B8421D414CC00A7991B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		549D5B8721D414CC00A7991B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		549D5B8921D414CC00A7991B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F2BFE76F5AC2B6D14839743 /* Pods_EvoDoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EvoDoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D23BB1C90AE2ABBF2057222 /* Pods-EvoDoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925F6BAE140A671DFEACB28D /* Pods_EvoDoc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F977BAD568412F6685A991C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D23BB1C90AE2ABBF2057222 /* Pods-EvoDoc.debug.xcconfig */,
+				3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		549D5B7121D414CA00A7991B = {
 			isa = PBXGroup;
 			children = (
-				549D5B7C21D414CA00A7991B /* bi-ios-evodoc */,
+				549D5B7C21D414CA00A7991B /* evodoc */,
 				549D5B7B21D414CA00A7991B /* Products */,
+				4F977BAD568412F6685A991C /* Pods */,
+				F75FACA696383F149FE66E96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -52,25 +72,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		549D5B7C21D414CA00A7991B /* bi-ios-evodoc */ = {
+		549D5B7C21D414CA00A7991B /* evodoc */ = {
 			isa = PBXGroup;
 			children = (
 				549D5B9121D4186000A7991B /* Controller */,
 				549D5B9021D4185600A7991B /* View */,
 				549D5B8F21D4184E00A7991B /* Model */,
 				549D5B7D21D414CA00A7991B /* AppDelegate.swift */,
-				549D5B7F21D414CA00A7991B /* ViewController.swift */,
-				549D5B8121D414CA00A7991B /* Main.storyboard */,
 				549D5B8421D414CC00A7991B /* Assets.xcassets */,
 				549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */,
 				549D5B8921D414CC00A7991B /* Info.plist */,
 			);
-			path = "bi-ios-evodoc";
+			path = evodoc;
 			sourceTree = "<group>";
 		};
 		549D5B8F21D4184E00A7991B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5445738022075682009F2416 /* EmptyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +97,7 @@
 		549D5B9021D4185600A7991B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				544573822207569F009F2416 /* EmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -85,8 +105,18 @@
 		549D5B9121D4186000A7991B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				549D5B7F21D414CA00A7991B /* RootController.swift */,
+				54457384220756AF009F2416 /* EmptyController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F75FACA696383F149FE66E96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F2BFE76F5AC2B6D14839743 /* Pods_EvoDoc.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 549D5B8C21D414CC00A7991B /* Build configuration list for PBXNativeTarget "EvoDoc" */;
 			buildPhases = (
+				5FB7493DA4290E13E4BBF4C1 /* [CP] Check Pods Manifest.lock */,
 				549D5B7621D414CA00A7991B /* Sources */,
 				549D5B7721D414CA00A7991B /* Frameworks */,
 				549D5B7821D414CA00A7991B /* Resources */,
+				9423A39BC9817A9938C682EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,18 +181,67 @@
 			files = (
 				549D5B8821D414CC00A7991B /* LaunchScreen.storyboard in Resources */,
 				549D5B8521D414CC00A7991B /* Assets.xcassets in Resources */,
-				549D5B8321D414CA00A7991B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FB7493DA4290E13E4BBF4C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EvoDoc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9423A39BC9817A9938C682EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		549D5B7621D414CA00A7991B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				549D5B8021D414CA00A7991B /* ViewController.swift in Sources */,
+				544573832207569F009F2416 /* EmptyView.swift in Sources */,
+				54457385220756AF009F2416 /* EmptyController.swift in Sources */,
+				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
+				5445738122075682009F2416 /* EmptyModel.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,14 +249,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		549D5B8121D414CA00A7991B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				549D5B8221D414CA00A7991B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -305,15 +378,16 @@
 		};
 		549D5B8D21D414CC00A7991B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D23BB1C90AE2ABBF2057222 /* Pods-EvoDoc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "bi-ios-evodoc/Info.plist";
+				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.evodoc.bi-ios-evodoc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evodoc.client-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,15 +396,16 @@
 		};
 		549D5B8E21D414CC00A7991B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "bi-ios-evodoc/Info.plist";
+				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.evodoc.bi-ios-evodoc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evodoc.client-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
