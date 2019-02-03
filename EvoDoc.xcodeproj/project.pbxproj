@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5445738122075682009F2416 /* EmptyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* EmptyModel.swift */; };
-		544573832207569F009F2416 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544573822207569F009F2416 /* EmptyView.swift */; };
-		54457385220756AF009F2416 /* EmptyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54457384220756AF009F2416 /* EmptyController.swift */; };
+		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
+		5445738A22077940009F2416 /* UIPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* UIPalette.swift */; };
+		5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738B2207886F009F2416 /* AuthSignInView.swift */; };
+		5445738E22078CA7009F2416 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738D22078CA7009F2416 /* UIUtilities.swift */; };
+		544573902207A185009F2416 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738F2207A185009F2416 /* Utilities.swift */; };
 		549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7D21D414CA00A7991B /* AppDelegate.swift */; };
 		549D5B8021D414CA00A7991B /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5B7F21D414CA00A7991B /* RootController.swift */; };
 		549D5B8521D414CC00A7991B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8421D414CC00A7991B /* Assets.xcassets */; };
@@ -20,8 +23,11 @@
 /* Begin PBXFileReference section */
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* EmptyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyModel.swift; sourceTree = "<group>"; };
-		544573822207569F009F2416 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		54457384220756AF009F2416 /* EmptyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyController.swift; sourceTree = "<group>"; };
+		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
+		5445738922077940009F2416 /* UIPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPalette.swift; sourceTree = "<group>"; };
+		5445738B2207886F009F2416 /* AuthSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInView.swift; sourceTree = "<group>"; };
+		5445738D22078CA7009F2416 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		5445738F2207A185009F2416 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		549D5B7A21D414CA00A7991B /* EvoDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvoDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		549D5B7D21D414CA00A7991B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		549D5B7F21D414CA00A7991B /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		544573882207792F009F2416 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5445738922077940009F2416 /* UIPalette.swift */,
+				5445738D22078CA7009F2416 /* UIUtilities.swift */,
+				5445738F2207A185009F2416 /* Utilities.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		549D5B7121D414CA00A7991B = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +91,7 @@
 		549D5B7C21D414CA00A7991B /* evodoc */ = {
 			isa = PBXGroup;
 			children = (
+				544573882207792F009F2416 /* Tools */,
 				549D5B9121D4186000A7991B /* Controller */,
 				549D5B9021D4185600A7991B /* View */,
 				549D5B8F21D4184E00A7991B /* Model */,
@@ -97,7 +114,7 @@
 		549D5B9021D4185600A7991B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				544573822207569F009F2416 /* EmptyView.swift */,
+				5445738B2207886F009F2416 /* AuthSignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				549D5B7F21D414CA00A7991B /* RootController.swift */,
-				54457384220756AF009F2416 /* EmptyController.swift */,
+				5445738622076D35009F2416 /* AuthSignInController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,10 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				544573832207569F009F2416 /* EmptyView.swift in Sources */,
-				54457385220756AF009F2416 /* EmptyController.swift in Sources */,
+				5445738A22077940009F2416 /* UIPalette.swift in Sources */,
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
+				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
+				5445738E22078CA7009F2416 /* UIUtilities.swift in Sources */,
+				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5445738122075682009F2416 /* EmptyModel.swift in Sources */,
+				544573902207A185009F2416 /* Utilities.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
