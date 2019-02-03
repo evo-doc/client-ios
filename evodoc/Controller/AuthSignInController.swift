@@ -67,6 +67,7 @@ class AuthSignInController: UIViewController {
     
     @objc func sendSignIn(sender: UITapGestureRecognizer) {
         print("Send login & pass")
+        self.navigationController?.pushViewController(DashboardController(), animated: true)
     }
 }
 
