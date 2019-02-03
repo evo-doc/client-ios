@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  evodoc
+//  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 26/12/2018.
 //  Copyright © 2018 evodoc. All rights reserved.
@@ -11,17 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-
-
+    var window: UIWindow?;
+    var enableRotation = true;
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // New main controller as ROOT
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: RootController())
-        window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds);
+        window?.rootViewController = UINavigationController(rootViewController: RootController());
+        window?.makeKeyAndVisible();
 
-        return true
+        return true;
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        // Rotation
+        if (enableRotation == true){
+            return UIInterfaceOrientationMask.allButUpsideDown;
+        }
+        return UIInterfaceOrientationMask.portrait;
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
