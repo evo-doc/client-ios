@@ -8,6 +8,6 @@
 
 import UIKit
 
-struct UIPalette {
+struct PaletteConfig {
     static let background = UIColor(red: 51/255, green: 62/255, blue: 79/255, alpha: 1.0);
 }

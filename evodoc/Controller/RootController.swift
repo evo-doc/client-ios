@@ -12,11 +12,20 @@ class RootController: UIViewController {
     
     var authSignInController: AuthSignInController = AuthSignInController();
     
+    // ---------------------------------------------------------------------------------------------
+    // Lifecycle functions
+    // ---------------------------------------------------------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.title = "Root";
     
+        // TODO
+        // Check if
+        // UserDefaults.standard.set(data.token, forKey: "token")
+        // exists, if it's valid. Display signInPage/mainPage.
+        
         // Push Sign In Controller
         self.navigationController?.pushViewController(self.authSignInController, animated: false)
     }
@@ -28,5 +37,10 @@ class RootController: UIViewController {
         // Hide Navbar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    // ---------------------------------------------------------------------------------------------
+    //
+    // ---------------------------------------------------------------------------------------------
+    
 }
 
