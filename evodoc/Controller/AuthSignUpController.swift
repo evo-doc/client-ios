@@ -13,9 +13,13 @@ class AuthSignUpController: UIViewController {
     
     let authSignUpView = AuthSignUpView();
     
+    // ---------------------------------------------------------------------------------------------
+    // Lifecycle functions
+    // ---------------------------------------------------------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad();
-        view.backgroundColor = UIPalette.background;
+        view.backgroundColor = PaletteConfig.background;
         
         // View
         view.addSubview(authSignUpView)
@@ -67,7 +71,7 @@ class AuthSignUpController: UIViewController {
     @objc func sendSignUp(sender: UITapGestureRecognizer) {
         // TODO: Server-Client authorization
         print("Send email, username & pass")
-        self.navigationController?.pushViewController(DashboardController(), animated: true)
+        //self.navigationController?.pushViewController(DashboardController(), animated: true)
     }
 }
 

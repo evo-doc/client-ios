@@ -10,6 +10,9 @@ import UIKit
 
 class AuthSignUpView: UIView {
     
+    var inputEmail: UITextField!;
+    var inputUsername: UITextField!;
+    var inputPass: UITextField!;
     var buttonSignUp: UIButton!;
     var labelSignIn: UILabel!;
     
@@ -17,17 +20,22 @@ class AuthSignUpView: UIView {
         super.init(frame: frame);
         
         // Create items
-        let email = UIUtilities.createInputLight("E-mail");
-        let username = UIUtilities.createInputLight("Username");
-        let pass = UIUtilities.createInputLight("Password");
-        self.buttonSignUp = UIUtilities.createButtonDark(title: "Sign Up");
-        self.labelSignIn = UIUtilities.createLabelLight("Have an account? Sign In!");
+        self.inputEmail = UtilitiesUI.createInputLight("E-mail");
+        self.inputEmail.autocorrectionType = .no;
+        self.inputEmail.autocapitalizationType = .none;
+        self.inputUsername = UtilitiesUI.createInputLight("Username");
+        self.inputUsername.autocorrectionType = .no;
+        self.inputUsername.autocapitalizationType = .none;
+        self.inputPass = UtilitiesUI.createInputLight("Password");
+        self.inputPass.isSecureTextEntry = true;
+        self.buttonSignUp = UtilitiesUI.createButtonDark(title: "Sign Up");
+        self.labelSignIn = UtilitiesUI.createLabelLight("Have an account? Sign In!");
         let bg = UIImageView(image: UIImage(named: "Logotype"));
         bg.contentMode = UIView.ContentMode.scaleAspectFit;
         
         // Create stack
-        let stack = UIUtilities.createVerStack(views:
-            bg, email, username, pass, self.buttonSignUp, self.labelSignIn
+        let stack = UtilitiesUI.createVerStack(views:
+            bg, self.inputEmail, self.inputUsername, self.inputPass, self.buttonSignUp, self.labelSignIn
         );
         self.addSubview(stack)
         

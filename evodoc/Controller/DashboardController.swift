@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import SnapKit
 
 class DashboardController: UIViewController {
+    
+    // ---------------------------------------------------------------------------------------------
+    // Lifecycle functions
+    // ---------------------------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.title = "Dashboard";
+        
+        // TODO: Remove Example View
+        let labelToken = UILabel();
+        labelToken.text = UserDefaults.standard.value(forKey: "token") as? String
+        view.addSubview(labelToken)
+        labelToken.snp.makeConstraints{
+            make in
+            make.top.equalTo(view.snp.topMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(view.snp.leftMargin)
+        }
+        // -------------------------
     }
     
     
@@ -25,5 +42,10 @@ class DashboardController: UIViewController {
         // Hide "Back" button
         self.navigationItem.setHidesBackButton(true, animated: animated)
     }
+    
+    // ---------------------------------------------------------------------------------------------
+    //
+    // ---------------------------------------------------------------------------------------------
+    
 }
 

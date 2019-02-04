@@ -13,9 +13,13 @@ class AuthSignInController: UIViewController {
     
     let authSignInView = AuthSignInView();
     
+    // ---------------------------------------------------------------------------------------------
+    // Lifecycle functions
+    // ---------------------------------------------------------------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad();
-        view.backgroundColor = UIPalette.background;
+        view.backgroundColor = PaletteConfig.background;
         
         // View
         view.addSubview(authSignInView)
@@ -65,9 +69,19 @@ class AuthSignInController: UIViewController {
     }
     
     @objc func sendSignIn(sender: UITapGestureRecognizer) {
-        // TODO: Server-Client authorization
-        print("Send login & pass");
-        self.navigationController?.pushViewController(DashboardController(), animated: true);
+        // Server-Client authorization
+        let login = self.authSignInView.inputLogin.text ?? "";
+        let password = self.authSignInView.inputPass.text ?? "";
+        
+        AuthAPI.postSignIn(login: login, password: password, callback: {
+            data in
+            // Save token
+            UserDefaults.standard.set(data.token, forKey: "token")
+            UserDefaults.standard.set(data.username, forKey: "username")
+            
+            // Redirect
+            self.navigationController?.pushViewController(DashboardController(), animated: true);
+        })
     }
 }
 

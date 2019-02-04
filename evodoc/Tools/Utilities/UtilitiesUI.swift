@@ -9,10 +9,10 @@
 import UIKit
 import SnapKit
 
-// UI Presets
-// -------------------------------------------------------------------------------------------------
-class UIUtilities {
-    // Horizontal Stack
+class UtilitiesUI {
+    // ---------------------------------------------------------------------------------------------
+    // UI Stacks
+    // ---------------------------------------------------------------------------------------------
     static func createHorStack(views : UIView...) -> UIStackView {
         let stack = UIStackView(arrangedSubviews: views);
         stack.axis = .horizontal;
@@ -28,6 +28,9 @@ class UIUtilities {
         return stack;
     }
     
+    // ---------------------------------------------------------------------------------------------
+    // UI Form Elements
+    // ---------------------------------------------------------------------------------------------
     // Text Input
     static func createInputLight(_ placeholder: String) -> UITextField {
         let field = UITextField();
@@ -45,7 +48,7 @@ class UIUtilities {
     static func createButtonDark(title: String) -> UIButton {
         let button = UIButton();
         button.setTitle(title, for: .normal)
-        button.backgroundColor = UIPalette.background;
+        button.backgroundColor = PaletteConfig.background;
         button.layer.borderWidth = 2;
         button.layer.borderColor = UIColor.white.cgColor;
         button.layer.cornerRadius = 30;
@@ -69,6 +72,7 @@ class UIUtilities {
 }
 
 
+// -------------------------------------------------------------------------------------------------
 // Adding paddings to UITextField
 // -------------------------------------------------------------------------------------------------
 extension UITextField {
