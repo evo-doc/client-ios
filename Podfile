@@ -7,5 +7,6 @@ target 'EvoDoc' do
 
   # Pods for EvoDoc
   pod 'SnapKit', '~> 4.2'
+  pod 'Alamofire', '~> 4.7'
 
 end
