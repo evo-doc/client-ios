@@ -53,6 +53,7 @@ class DashboardController: UITabBarController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         // Hide "Back" button
         self.navigationItem.setHidesBackButton(true, animated: animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // ---------------------------------------------------------------------------------------------
