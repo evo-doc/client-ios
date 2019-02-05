@@ -75,6 +75,19 @@ class UtilitiesUI {
         let area = UILabel();
         area.text = text;
         area.textColor = PaletteConfig.textDark;
+        area.lineBreakMode = .byWordWrapping;
+        area.numberOfLines = 0;
+        return area;
+    }
+    
+    // Header 1
+    static func createHeader1(_ text: String) -> UILabel {
+        let area = UILabel();
+        area.text = text;
+        area.font = UIFont(name: area.font.fontName, size: 22)
+        area.textColor = PaletteConfig.textDark;
+        area.lineBreakMode = .byWordWrapping;
+        area.numberOfLines = 0;
         return area;
     }
 }
