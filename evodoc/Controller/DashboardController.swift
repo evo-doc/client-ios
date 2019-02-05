@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class DashboardController: UIViewController {
+class DashboardController: UITabBarController {
     
     // ---------------------------------------------------------------------------------------------
     // Lifecycle functions
@@ -17,27 +17,39 @@ class DashboardController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        self.title = "Dashboard";
+        view.backgroundColor = .white;
+        self.title = "EvoDoc";
         
-        // TODO: Remove Example View
-        let labelToken = UILabel();
-        labelToken.text = UserDefaults.standard.value(forKey: "token") as? String
-        view.addSubview(labelToken)
-        labelToken.snp.makeConstraints{
-            make in
-            make.top.equalTo(view.snp.topMargin)
-            make.right.equalTo(view.snp.rightMargin)
-            make.left.equalTo(view.snp.leftMargin)
-        }
-        // -------------------------
+        // Tabs
+        let projectsController = ProjectsController();
+        projectsController.tabBarItem.title = "Projects"
+        projectsController.tabBarItem.image = UIImage(named: "projects")
+        let packagesController = PackagesController();
+        packagesController.tabBarItem.title = "Packages"
+        packagesController.tabBarItem.image = UIImage(named: "packages")
+        let documentationController = DocumentationController();
+        documentationController.tabBarItem.title = "Documentation";
+        documentationController.tabBarItem.image = UIImage(named: "documentation")
+        let settingsController = SettingsController();
+        settingsController.tabBarItem.title = "Settings"
+        settingsController.tabBarItem.image = UIImage(named: "settings")
+        
+        // Set Tabs
+        let viewControllerList = [
+            projectsController,
+            packagesController,
+            documentationController,
+            settingsController
+        ]
+        viewControllers = viewControllerList;
+        self.selectedIndex = 0;
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Show Navbar
+        // Hide Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         // Hide "Back" button
         self.navigationItem.setHidesBackButton(true, animated: animated)
