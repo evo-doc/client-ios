@@ -20,14 +20,6 @@ class RootController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = PaletteConfig.background
         self.title = "Root";
-    
-        // TODO
-        // Check if
-        // UserDefaults.standard.set(data.token, forKey: "token")
-        // exists, if it's valid. Display signInPage/mainPage.
-        
-        // Push Sign In Controller
-        self.navigationController?.pushViewController(self.authSignInController, animated: false)
     }
     
 
@@ -36,6 +28,16 @@ class RootController: UIViewController {
         
         // Hide Navbar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        // Check if user has token
+        if let token = UserDefaults.standard.value(forKey: "token") {
+            print(token)
+            // Push Dashboard
+            self.navigationController?.pushViewController(DashboardController(), animated: false);
+        } else {
+            // Push Sign In Controller
+            self.navigationController?.pushViewController(self.authSignInController, animated: false)
+        }
     }
     
     // ---------------------------------------------------------------------------------------------
