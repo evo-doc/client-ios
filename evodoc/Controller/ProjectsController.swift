@@ -11,14 +11,24 @@ import SnapKit
 
 class ProjectsController: UIViewController {
     
+    let projectListView = ProjectListView();
+    var data: ProjectListModel!;
+    
     // ---------------------------------------------------------------------------------------------
     // Lifecycle functions
     // ---------------------------------------------------------------------------------------------
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .yellow
+        super.viewDidLoad();
+        view.backgroundColor = .yellow;
         self.title = "Projects";
+        
+        ProjectAPI.getProjects(callback: { data in
+            self.data = data
+        })
+        
+        projectListView.projectsList.delegate = self;
+        projectListView.projectsList.dataSource = self;
     }
     
     
@@ -34,6 +44,28 @@ class ProjectsController: UIViewController {
     // ---------------------------------------------------------------------------------------------
     //
     // ---------------------------------------------------------------------------------------------
+}
+
+//Extension for UITableViewDelegate & UITableViewDataSource stuff
+extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.projects.data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let project = data.projects.data[indexPath.row];
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProjectTableCellView.reuseIdentifier, for: indexPath) as? ProjectTableCellView else {
+            return UITableViewCell();
+        }
+        
+        cell.name = project.name;
+        cell.desc = project.description;
+        
+        return cell
+    }
+    
     
 }
 
