@@ -69,9 +69,20 @@ class AuthSignUpController: UIViewController {
     }
     
     @objc func sendSignUp(sender: UITapGestureRecognizer) {
-        // TODO: Server-Client authorization
-        print("Send email, username & pass")
-        //self.navigationController?.pushViewController(DashboardController(), animated: true)
+        // Server-Client authorization
+        let email = self.authSignUpView.inputEmail.text ?? "";
+        let username = self.authSignUpView.inputUsername.text ?? "";
+        let password = self.authSignUpView.inputPass.text ?? "";
+        
+        AuthAPI.postSignUp(email: email, username: username, password: password, callback: {
+            data in
+            // Save token
+            UserDefaults.standard.set(data.token, forKey: "token")
+            UserDefaults.standard.set(data.username, forKey: "username")
+            
+            // Redirect
+            self.navigationController?.pushViewController(DashboardController(), animated: true);
+        })
     }
 }
 

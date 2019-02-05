@@ -47,6 +47,64 @@ class AuthAPI {
         }
     }
     
-    //
+    
+    // Check authorization
     // ---------------------------------------------------------------------------------------------
+    static func isAuthorised(
+        callback: @escaping ((Bool) -> ())
+        ) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/auth/authenticated"),
+            method: .get,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    callback(false)
+                }
+        }
+    }
+    
+    
+    // Sign Up
+    // ---------------------------------------------------------------------------------------------
+    static func postSignUp(
+        email: String,
+        username: String,
+        password: String,
+        callback: @escaping ((AuthAPISignInSuccessModel) -> ())
+        ) {
+        
+        Alamofire.request(
+            ServerConfig.host("/auth/signup"),
+            method: .post,
+            parameters: [
+                "email": email,
+                "username": username,
+                "password": password
+            ],
+            encoding: JSONEncoding.default
+            ).responseJSON { response in
+                
+                if let data = response.data {
+                    do {
+                        let jsonDecoder = JSONDecoder()
+                        let auth = try jsonDecoder.decode(AuthAPISignInSuccessModel.self, from: data)
+                        
+                        callback(auth)
+                    } catch {
+                        Utilities.viewAlert(title: "Registration Error", message: "Some data are not unique or the password is too weak.")
+                    }
+                }
+        }
+    }
+    
 }

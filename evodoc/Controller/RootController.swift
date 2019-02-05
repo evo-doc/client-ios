@@ -29,15 +29,19 @@ class RootController: UIViewController {
         // Hide Navbar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        // Check if user has token
-        if let token = UserDefaults.standard.value(forKey: "token") {
-            print(token)
-            // Push Dashboard
-            self.navigationController?.pushViewController(DashboardController(), animated: false);
-        } else {
-            // Push Sign In Controller
-            self.navigationController?.pushViewController(self.authSignInController, animated: false)
-        }
+        // Check if user has token and its valid
+        AuthAPI.isAuthorised(callback: { value in
+            if value {
+                // Push Dashboard
+                self.navigationController?.pushViewController(DashboardController(), animated: false);
+            } else {
+                // Clean token
+                UserDefaults.standard.set(nil, forKey: "token")
+                // Push Sign In Controller
+                self.navigationController?.pushViewController(self.authSignInController, animated: false)
+            }
+        })
+        
     }
     
     // ---------------------------------------------------------------------------------------------
