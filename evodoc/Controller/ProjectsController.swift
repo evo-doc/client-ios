@@ -27,6 +27,7 @@ class ProjectsController: UIViewController {
         
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.topItem?.title = "Projects"
     }
     
     // ---------------------------------------------------------------------------------------------

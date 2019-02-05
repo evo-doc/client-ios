@@ -17,8 +17,17 @@ class PackagesController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
         self.title = "Packages";
+        
+        let packagesView = PackagesView();
+        view.addSubview(packagesView);
+        packagesView.snp.makeConstraints{
+            make in
+            make.left.equalTo(view.snp.leftMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+        }
     }
     
     
@@ -27,6 +36,7 @@ class PackagesController: UIViewController {
         
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.topItem?.title = "Packages"
     }
     
     // ---------------------------------------------------------------------------------------------
