@@ -11,6 +11,8 @@ import SnapKit
 
 class SettingsController: UIViewController {
     
+    var buttonLogout = UtilitiesUI.createButtonDark(title: "Logout");
+    
     // ---------------------------------------------------------------------------------------------
     // Lifecycle functions
     // ---------------------------------------------------------------------------------------------
@@ -29,6 +31,16 @@ class SettingsController: UIViewController {
             make.right.equalTo(view.snp.rightMargin)
             make.left.equalTo(view.snp.leftMargin)
         }
+        
+        view.addSubview(buttonLogout)
+        buttonLogout.snp.makeConstraints{
+            make in
+            make.top.equalTo(200)
+            make.right.equalTo(view.snp.rightMargin)
+            make.left.equalTo(view.snp.leftMargin)
+        }
+        
+        self.setGestures();
     }
     
     
@@ -40,8 +52,19 @@ class SettingsController: UIViewController {
     }
     
     // ---------------------------------------------------------------------------------------------
-    //
+    // Gestures
     // ---------------------------------------------------------------------------------------------
     
+    func setGestures(){
+        // Logout
+        let gestLogout = UITapGestureRecognizer(target: self, action: #selector(self.doLogout))
+        self.buttonLogout.isUserInteractionEnabled = true;
+        self.buttonLogout.addGestureRecognizer(gestLogout);
+    }
+    
+    @objc func doLogout(sender: UITapGestureRecognizer) {
+        UserDefaults.standard.set(nil, forKey: "token");
+        self.navigationController?.popToRootViewController(animated: true);
+    }
 }
 
