@@ -73,4 +73,38 @@ class AuthAPI {
         }
     }
     
+    
+    // Sign Up
+    // ---------------------------------------------------------------------------------------------
+    static func postSignUp(
+        email: String,
+        username: String,
+        password: String,
+        callback: @escaping ((AuthAPISignInSuccessModel) -> ())
+        ) {
+        
+        Alamofire.request(
+            ServerConfig.host("/auth/signup"),
+            method: .post,
+            parameters: [
+                "email": email,
+                "username": username,
+                "password": password
+            ],
+            encoding: JSONEncoding.default
+            ).responseJSON { response in
+                
+                if let data = response.data {
+                    do {
+                        let jsonDecoder = JSONDecoder()
+                        let auth = try jsonDecoder.decode(AuthAPISignInSuccessModel.self, from: data)
+                        
+                        callback(auth)
+                    } catch {
+                        Utilities.viewAlert(title: "Registration Error", message: "Some data are not unique or the password is too weak.")
+                    }
+                }
+        }
+    }
+    
 }
