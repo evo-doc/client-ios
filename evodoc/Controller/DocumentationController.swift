@@ -17,8 +17,17 @@ class DocumentationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         self.title = "Documentation";
+        
+        let documentationView = DocumentationView();
+        view.addSubview(documentationView);
+        documentationView.snp.makeConstraints{
+            make in
+            make.left.equalTo(view.snp.leftMargin)
+            make.right.equalTo(view.snp.rightMargin)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+        }
     }
     
     

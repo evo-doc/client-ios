@@ -42,7 +42,7 @@ class DashboardController: UITabBarController {
             settingsController
         ]
         viewControllers = viewControllerList;
-        self.selectedIndex = 0;
+        self.selectedIndex = 2;
     }
     
     
