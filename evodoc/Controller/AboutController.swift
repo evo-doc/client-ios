@@ -27,9 +27,6 @@ class AboutController: UIViewController {
             make in
             make.edges.equalToSuperview()
         }
-        
-        self.navigationController?.navigationBar.topItem?.title = "About Us"
-        
     }
     
     

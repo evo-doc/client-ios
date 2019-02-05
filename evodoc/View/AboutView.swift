@@ -17,7 +17,7 @@ class AboutView: UIScrollView {
         // Create Stack
         let stack = UtilitiesUI.createVerStack(views:
             UtilitiesUI.createHeader1("About EvoDoc"),
-            UtilitiesUI.createTextDark("EvoDoc is an abbreviation for evolvable documents. The whole project is developed within CTU FIT subjects Software project and Software engineering as an experiment to provide a better experience with writing of longer text documents such as documentations, theses, manuals, etc."),
+            UtilitiesUI.createTextDark("The whole project is developed within CTU FIT subjects Software project and Software engineering as an experiment to provide a better experience with writing of longer text documents such as documentations, theses, manuals, etc."),
             
             UtilitiesUI.createTextDark("The main idea of the project is to organise documents into smaller parts – modules that could be repeatedly used in many parts of many papers, e.g. a license in different manuals."),
             UtilitiesUI.createHeader1("Source code"),
