@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540534242209D42600FD431D /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540534232209D42600FD431D /* DocumentationView.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
+		540534232209D42600FD431D /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
 				5445738B2207886F009F2416 /* AuthSignInView.swift */,
+				540534232209D42600FD431D /* DocumentationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
+				540534242209D42600FD431D /* DocumentationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

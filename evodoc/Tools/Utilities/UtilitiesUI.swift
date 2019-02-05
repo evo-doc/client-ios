@@ -69,6 +69,14 @@ class UtilitiesUI {
         }
         return label;
     }
+    
+    // Text
+    static func createTextDark(_ text: String) -> UILabel {
+        let area = UILabel();
+        area.text = text;
+        area.textColor = PaletteConfig.textDark;
+        return area;
+    }
 }
 
 
