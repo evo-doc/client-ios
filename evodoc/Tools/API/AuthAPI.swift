@@ -47,6 +47,30 @@ class AuthAPI {
         }
     }
     
-    //
+    
+    // Check authorization
     // ---------------------------------------------------------------------------------------------
+    static func isAuthorised(
+        callback: @escaping ((Bool) -> ())
+        ) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/auth/authenticated"),
+            method: .get,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    callback(false)
+                }
+        }
+    }
+    
 }
