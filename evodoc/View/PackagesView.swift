@@ -18,22 +18,17 @@ class PackagesView: UIScrollView {
         let emojiSad = UIImageView();
         emojiSad.image = UIImage(named: "emojiSad");
         emojiSad.contentMode = .scaleAspectFit;
-        
         let label = UtilitiesUI.createHeader1("This functionality isn't implemented yet.");
         label.textAlignment = .center;
         
         // Create Stack
-        let stack = UtilitiesUI.createVerStack(views:
-            UtilitiesUI.createTextDark(""),
-            emojiSad,
-            label,
-            UtilitiesUI.createTextDark("")
-        )
-        self.addSubview(stack)
+        let stack = UtilitiesUI.createVerStack(views: emojiSad, label);
+        self.addSubview(stack);
+        stack.layoutMargins = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15);
+        stack.isLayoutMarginsRelativeArrangement = true;
         stack.snp.makeConstraints{
             make in
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
+            make.edges.equalToSuperview()
             make.width.equalToSuperview()
         }
     }

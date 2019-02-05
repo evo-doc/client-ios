@@ -19,14 +19,11 @@ class PackagesController: UIViewController {
         super.viewDidLoad()
         self.title = "Packages";
         
-        let packagesView = PackagesView();
-        view.addSubview(packagesView);
-        packagesView.snp.makeConstraints{
+        let contentView = PackagesView();
+        view.addSubview(contentView);
+        contentView.snp.makeConstraints{
             make in
-            make.left.equalTo(view.snp.leftMargin)
-            make.right.equalTo(view.snp.rightMargin)
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
+            make.edges.equalToSuperview()
         }
     }
     

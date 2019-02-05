@@ -21,31 +21,30 @@ class DocumentationView: UIScrollView {
         let screenSignIn = UIImageView();
         screenSignIn.image = UIImage(named: "screenSignIn");
         screenSignIn.contentMode = .scaleAspectFit
-        
-        
+  
+
         // Create Stack
         let stack = UtilitiesUI.createVerStack(views:
-            UtilitiesUI.createTextDark(""),
             logo,
             UtilitiesUI.createTextDark("EvoDoc is an abbreviation for evolvable documents.The main idea of the project is to organise documents into smaller parts – modules that could be repeatedly used in many parts of many papers, e.g. a license in different manuals."),
             UtilitiesUI.createHeader1("Authorization"),
             screenSignIn,
             UtilitiesUI.createHeader1("Projects"),
             UtilitiesUI.createHeader1("Packages"),
-            UtilitiesUI.createTextDark("This functionality isn't implemented yet. Unfurtunately, also no docs."),
-            
-            UtilitiesUI.createTextDark("")
+            UtilitiesUI.createTextDark("This functionality isn't implemented yet. Unfurtunately, also no docs.")
         )
+        
         self.addSubview(stack)
+        stack.layoutMargins = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15)
+        stack.isLayoutMarginsRelativeArrangement = true
         stack.snp.makeConstraints{
             make in
-            make.top.equalTo(self.snp.top)
-            make.bottom.equalTo(self.snp.bottom)
+            make.edges.equalToSuperview()
             make.width.equalToSuperview()
         }
         
         
-        // Content
+        // Content contraints
         logo.snp.makeConstraints{
             make in
             make.width.equalTo(100)
