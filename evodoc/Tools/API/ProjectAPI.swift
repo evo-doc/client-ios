@@ -26,15 +26,14 @@ class ProjectAPI {
             encoding: JSONEncoding.default,
             headers: headers
             ).responseJSON { response in
+                
                 if let data = response.data {
                     do {
                         let jsonDecoder = JSONDecoder()
-                        print(data)
                         let projects = try
                             jsonDecoder.decode(ProjectListModel.self, from: data);
                         callback(projects)
                     } catch {
-                        print(error)
                         Utilities.viewAlert(title: "Projects load error", message: "Problem occured during loading projects.")
                     }
                 }
