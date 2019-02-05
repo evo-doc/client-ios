@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		540534242209D42600FD431D /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540534232209D42600FD431D /* DocumentationView.swift */; };
+		54053426220A176000FD431D /* PackagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053425220A175F00FD431D /* PackagesView.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
 		540534232209D42600FD431D /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
+		54053425220A175F00FD431D /* PackagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesView.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
 				5445738B2207886F009F2416 /* AuthSignInView.swift */,
+				54053425220A175F00FD431D /* PackagesView.swift */,
 				540534232209D42600FD431D /* DocumentationView.swift */,
 			);
 			path = View;
@@ -324,6 +327,7 @@
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
 				54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */,
 				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
+				54053426220A176000FD431D /* PackagesView.swift in Sources */,
 				54F98FD22208CE3F0030ED4C /* AuthAPI.swift in Sources */,
 				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
 				5445738E22078CA7009F2416 /* UtilitiesUI.swift in Sources */,
