@@ -22,6 +22,10 @@
 		549D5B8821D414CC00A7991B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */; };
 		54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FCE2208B6310030ED4C /* ServerConfig.swift */; };
 		54F98FD22208CE3F0030ED4C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FD12208CE3F0030ED4C /* AuthAPI.swift */; };
+		54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FD52208FB280030ED4C /* DocumentationController.swift */; };
+		54F98FD82208FE290030ED4C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FD72208FE280030ED4C /* SettingsController.swift */; };
+		54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FDA220901000030ED4C /* ProjectsController.swift */; };
+		54F98FDD220901310030ED4C /* PackagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F98FDC220901310030ED4C /* PackagesController.swift */; };
 		925F6BAE140A671DFEACB28D /* Pods_EvoDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2BFE76F5AC2B6D14839743 /* Pods_EvoDoc.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,10 @@
 		549D5B8921D414CC00A7991B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54F98FCE2208B6310030ED4C /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		54F98FD12208CE3F0030ED4C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		54F98FD52208FB280030ED4C /* DocumentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationController.swift; sourceTree = "<group>"; };
+		54F98FD72208FE280030ED4C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		54F98FDA220901000030ED4C /* ProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsController.swift; sourceTree = "<group>"; };
+		54F98FDC220901310030ED4C /* PackagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesController.swift; sourceTree = "<group>"; };
 		6F2BFE76F5AC2B6D14839743 /* Pods_EvoDoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EvoDoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D23BB1C90AE2ABBF2057222 /* Pods-EvoDoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,10 +141,13 @@
 		549D5B9121D4186000A7991B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54F98FD9220900E40030ED4C /* Authorization */,
 				549D5B7F21D414CA00A7991B /* RootController.swift */,
 				544573912207AAB9009F2416 /* DashboardController.swift */,
-				544573932207ACF4009F2416 /* AuthSignUpController.swift */,
-				5445738622076D35009F2416 /* AuthSignInController.swift */,
+				54F98FDA220901000030ED4C /* ProjectsController.swift */,
+				54F98FDC220901310030ED4C /* PackagesController.swift */,
+				54F98FD52208FB280030ED4C /* DocumentationController.swift */,
+				54F98FD72208FE280030ED4C /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +176,15 @@
 				5445738F2207A185009F2416 /* Utilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		54F98FD9220900E40030ED4C /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				544573932207ACF4009F2416 /* AuthSignUpController.swift */,
+				5445738622076D35009F2416 /* AuthSignInController.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		F75FACA696383F149FE66E96 /* Frameworks */ = {
@@ -297,13 +317,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5445738A22077940009F2416 /* PaletteConfig.swift in Sources */,
+				54F98FD82208FE290030ED4C /* SettingsController.swift in Sources */,
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
+				54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */,
 				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
 				54F98FD22208CE3F0030ED4C /* AuthAPI.swift in Sources */,
 				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
 				5445738E22078CA7009F2416 /* UtilitiesUI.swift in Sources */,
+				54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5445738122075682009F2416 /* AuthModel.swift in Sources */,
+				54F98FDD220901310030ED4C /* PackagesController.swift in Sources */,
 				544573902207A185009F2416 /* Utilities.swift in Sources */,
 				544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
