@@ -42,7 +42,7 @@ class DashboardController: UITabBarController {
             settingsController
         ]
         viewControllers = viewControllerList;
-        self.selectedIndex = 2;
+        self.selectedIndex = 0;
     }
     
     
@@ -53,6 +53,7 @@ class DashboardController: UITabBarController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         // Hide "Back" button
         self.navigationItem.setHidesBackButton(true, animated: animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // ---------------------------------------------------------------------------------------------
