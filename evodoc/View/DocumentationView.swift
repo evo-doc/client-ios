@@ -15,23 +15,25 @@ class DocumentationView: UIScrollView {
         super.init(frame: frame)
         
         // Create items
-        let logo = UIImageView();
-        logo.image = UIImage(named: "Logotype");
-        logo.contentMode = .scaleAspectFit;
         let screenSignIn = UIImageView();
         screenSignIn.image = UIImage(named: "screenSignIn");
         screenSignIn.contentMode = .scaleAspectFit
+        let screenSettings = UIImageView();
+        screenSettings.image = UIImage(named: "screenSettings");
+        screenSettings.contentMode = .scaleAspectFit
   
 
         // Create Stack
         let stack = UtilitiesUI.createVerStack(views:
-            logo,
             UtilitiesUI.createTextDark("EvoDoc is an abbreviation for evolvable documents.The main idea of the project is to organise documents into smaller parts – modules that could be repeatedly used in many parts of many papers, e.g. a license in different manuals."),
             UtilitiesUI.createHeader1("Authorization"),
             screenSignIn,
             UtilitiesUI.createHeader1("Projects"),
             UtilitiesUI.createHeader1("Packages"),
-            UtilitiesUI.createTextDark("This functionality isn't implemented yet. Unfurtunately, also no docs.")
+            UtilitiesUI.createTextDark("This functionality isn't implemented yet. Unfurtunately, also no docs."),
+            UtilitiesUI.createHeader1("Settings"),
+            screenSettings,
+            UtilitiesUI.createTextDark("At the settings page you can view your profile, open a github contribution links or log out from the system.")
         )
         
         self.addSubview(stack)
@@ -41,14 +43,6 @@ class DocumentationView: UIScrollView {
             make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-        }
-        
-        
-        // Content contraints
-        logo.snp.makeConstraints{
-            make in
-            make.width.equalTo(100)
-            make.height.equalTo(100)
         }
     }
     
