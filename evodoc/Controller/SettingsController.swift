@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SettingsController: UIViewController {
+class SettingsController: UIViewController, UITableViewDataSource {
     
     // ---------------------------------------------------------------------------------------------
     // Data

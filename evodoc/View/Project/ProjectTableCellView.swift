@@ -30,11 +30,11 @@ final class ProjectTableCellView: UITableViewCell {
         let nameLabel = UILabel();
         nameLabel.font = UIFont.preferredFont(forTextStyle: .headline);
         contentView.addSubview(nameLabel);
-        nameLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
-                .inset(UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
+        nameLabel.snp.makeConstraints {
+            make in
+            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 0))
             make.bottom.lessThanOrEqualToSuperview().inset(5)
-            make.size.equalTo(50).priority(999)
+            make.height.equalTo(40)
         }
         self.nameLabel = nameLabel
         
@@ -43,7 +43,8 @@ final class ProjectTableCellView: UITableViewCell {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
-            make.leading.trailing.equalTo(nameLabel)
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(15)
             make.bottom.lessThanOrEqualToSuperview().inset(5)
         }
         self.descriptionLabel = descriptionLabel

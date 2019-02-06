@@ -23,12 +23,19 @@ class ProjectsController: UIViewController {
         view.backgroundColor = .yellow;
         self.title = "Projects";
         
-        ProjectAPI.getProjects(callback: { data in
-            // print(data.projects.data[0].name)
-        })
+        view.addSubview(projectListView)
+        projectListView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
-//        projectListView.projectsList.delegate = self;
-//        projectListView.projectsList.dataSource = self;
+        projectListView.projectsList.delegate = self;
+        projectListView.projectsList.dataSource = self;
+        projectListView.projectsList.register(ProjectTableCellView.self, forCellReuseIdentifier: ProjectTableCellView.reuseIdentifier);
+        
+        ProjectAPI.getProjects(callback: { data in
+            self.data = data;
+            self.projectListView.projectsList.reloadData();
+        })
     }
     
     
@@ -45,26 +52,30 @@ class ProjectsController: UIViewController {
     // ---------------------------------------------------------------------------------------------
 }
 
-////Extension for UITableViewDelegate & UITableViewDataSource stuff
-//extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return data.projects.data.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let project = data.projects.data[indexPath.row];
-//
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProjectTableCellView.reuseIdentifier, for: indexPath) as? ProjectTableCellView else {
-//            return UITableViewCell();
-//        }
-//
-//        cell.name = project.name;
-//        cell.desc = project.description;
-//
-//        return cell
-//    }
-//
-//
-//}
-//
+//Extension for UITableViewDelegate & UITableViewDataSource stuff
+extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let d = self.data {
+            return d.projects.data.count;
+        } else {
+            return 0;
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let project = data.projects.data[indexPath.row];
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProjectTableCellView.reuseIdentifier, for: indexPath) as? ProjectTableCellView else {
+            return UITableViewCell();
+        }
+
+        cell.name = project.name;
+        cell.desc = project.text;
+
+        return cell;
+    }
+
+
+}
+

@@ -10,7 +10,7 @@ struct ProjectListModel : Codable {
     var projects: ProjectData;
     
     struct ProjectData : Codable {
-        var label: [String]
+        var label: [String];
         
         var data: [ProjectDataMixed];
         
