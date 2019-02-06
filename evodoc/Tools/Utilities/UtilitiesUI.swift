@@ -74,6 +74,7 @@ class UtilitiesUI {
     static func createTextDark(_ text: String) -> UILabel {
         let area = UILabel();
         area.text = text;
+        area.font = UIFont(name: area.font.fontName, size: 18)
         area.textColor = PaletteConfig.textDark;
         area.lineBreakMode = .byWordWrapping;
         area.numberOfLines = 0;
@@ -85,6 +86,7 @@ class UtilitiesUI {
         let area = UILabel();
         area.text = text;
         area.font = UIFont(name: area.font.fontName, size: 22)
+        area.font = area.font.bold
         area.textColor = PaletteConfig.textDark;
         area.lineBreakMode = .byWordWrapping;
         area.numberOfLines = 0;
@@ -127,5 +129,29 @@ extension UITextField {
             self.rightView = paddingView;
             self.rightViewMode = .always;
         }
+    }
+}
+
+
+extension UIFont {
+    var bold: UIFont {
+        return with(traits: .traitBold)
+    } // bold
+    
+    var italic: UIFont {
+        return with(traits: .traitItalic)
+    } // italic
+    
+    var boldItalic: UIFont {
+        return with(traits: [.traitBold, .traitItalic])
+    } // boldItalic
+    
+    
+    func with(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        guard let descriptor = self.fontDescriptor.withSymbolicTraits(traits) else {
+            return self
+        } // guard
+        
+        return UIFont(descriptor: descriptor, size: 0)
     }
 }
