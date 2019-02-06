@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SettingsController: UIViewController {
+class SettingsController: UIViewController, UITableViewDataSource {
     
     // ---------------------------------------------------------------------------------------------
     // Data
@@ -49,18 +49,6 @@ class SettingsController: UIViewController {
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationController?.navigationBar.topItem?.title = "Settings"
-    }
-}
-
-
-// ---------------------------------------------------------------------------------------------
-// Table Data Source
-// ---------------------------------------------------------------------------------------------
-
-extension SettingsController: UITableViewDataSource {
-    // Get number of sections
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingsModel.data.count
     }
     
     // Get number of rows

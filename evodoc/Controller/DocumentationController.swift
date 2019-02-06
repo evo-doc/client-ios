@@ -34,20 +34,6 @@ class DocumentationController: UIViewController {
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationController?.navigationBar.topItem?.title = "Documentation"
-        
-        // Show right button
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
-            title: "About Us",
-            style: .done,
-            target: self,
-            action: #selector(gotoAboutUs))
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Hide right button
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
     }
     
     // ---------------------------------------------------------------------------------------------

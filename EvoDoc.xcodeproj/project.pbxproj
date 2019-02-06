@@ -13,6 +13,10 @@
 		5405342A220A21CA00FD431D /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053429220A21CA00FD431D /* AboutController.swift */; };
 		5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405342D220B224500FD431D /* SettingsDefaultCellView.swift */; };
 		54053436220B24FB00FD431D /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053435220B24FB00FD431D /* SettingsModel.swift */; };
+		31F703CE22098B8000C13CE0 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F703CD22098B8000C13CE0 /* ProjectListView.swift */; };
+		31F703D12209E21F00C13CE0 /* ProjectListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F703D02209E21F00C13CE0 /* ProjectListModel.swift */; };
+		31F703D32209E2E600C13CE0 /* ProjectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F703D22209E2E600C13CE0 /* ProjectAPI.swift */; };
+		31F703D52209F98700C13CE0 /* ProjectTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F703D42209F98700C13CE0 /* ProjectTableCellView.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31F703CD22098B8000C13CE0 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		31F703D02209E21F00C13CE0 /* ProjectListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListModel.swift; sourceTree = "<group>"; };
+		31F703D22209E2E600C13CE0 /* ProjectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAPI.swift; sourceTree = "<group>"; };
+		31F703D42209F98700C13CE0 /* ProjectTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableCellView.swift; sourceTree = "<group>"; };
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
 		540534232209D42600FD431D /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		54053425220A175F00FD431D /* PackagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesView.swift; sourceTree = "<group>"; };
@@ -80,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31F703CC22098B3C00C13CE0 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				31F703CD22098B8000C13CE0 /* ProjectListView.swift */,
+				31F703D42209F98700C13CE0 /* ProjectTableCellView.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		31F703CF2209E1FE00C13CE0 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				31F703D02209E21F00C13CE0 /* ProjectListModel.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		4F977BAD568412F6685A991C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				54053434220B24EC00FD431D /* Settings */,
+				31F703CF2209E1FE00C13CE0 /* Project */,
 				5445738022075682009F2416 /* AuthModel.swift */,
 			);
 			path = Model;
@@ -162,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				54053431220B245400FD431D /* Settings */,
+				31F703CC22098B3C00C13CE0 /* Project */,
 				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
 				5445738B2207886F009F2416 /* AuthSignInView.swift */,
 				54053425220A175F00FD431D /* PackagesView.swift */,
@@ -190,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				54F98FD12208CE3F0030ED4C /* AuthAPI.swift */,
+				31F703D22209E2E600C13CE0 /* ProjectAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -351,9 +379,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				54053436220B24FB00FD431D /* SettingsModel.swift in Sources */,
+				31F703D52209F98700C13CE0 /* ProjectTableCellView.swift in Sources */,
 				5445738A22077940009F2416 /* PaletteConfig.swift in Sources */,
 				5405342A220A21CA00FD431D /* AboutController.swift in Sources */,
 				54F98FD82208FE290030ED4C /* SettingsController.swift in Sources */,
+				31F703D12209E21F00C13CE0 /* ProjectListModel.swift in Sources */,
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
 				54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */,
 				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
@@ -365,6 +395,8 @@
 				54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */,
+				31F703CE22098B8000C13CE0 /* ProjectListView.swift in Sources */,
+				31F703D32209E2E600C13CE0 /* ProjectAPI.swift in Sources */,
 				5445738122075682009F2416 /* AuthModel.swift in Sources */,
 				54F98FDD220901310030ED4C /* PackagesController.swift in Sources */,
 				544573902207A185009F2416 /* Utilities.swift in Sources */,
@@ -512,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6MT3VB3A8;
 				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6MT3VB3A8;
 				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
