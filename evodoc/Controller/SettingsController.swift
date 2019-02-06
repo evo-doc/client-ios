@@ -76,6 +76,7 @@ extension SettingsController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.titleLabel.text = user.name
+        cell.titleLabel.textColor = user.textColor
         cell.accessoryType = .disclosureIndicator
         
         return cell
