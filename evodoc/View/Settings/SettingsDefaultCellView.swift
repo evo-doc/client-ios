@@ -41,15 +41,12 @@ class SettingsDefaultCellView: UITableViewCell {
     // ---------------------------------------------------------------------------------------------
     
     func setupView() {
-        addSubview(titleLabel)
-        titleLabel.clipsToBounds = true
+        contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints{
             make in
             make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 0))
             make.bottom.lessThanOrEqualToSuperview().inset(5)
-            //            make.size.equalTo(30).priority(999)
             make.height.equalTo(40)
-            make.width.equalToSuperview()
         }
     }
     
