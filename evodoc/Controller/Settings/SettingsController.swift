@@ -99,6 +99,10 @@ extension SettingsController: UITableViewDelegate {
         // Push page
         // Heh
         
+        if(indexPath.section == 0 && indexPath.row == 0) {
+            self.navigationController?.pushViewController(ProfileController(), animated: true)
+        }
+        
         if(indexPath.section == 2 && indexPath.row == 0) {
             UserDefaults.standard.set(nil, forKey: "token");
             self.navigationController?.popToRootViewController(animated: true);
