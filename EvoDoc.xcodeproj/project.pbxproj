@@ -20,6 +20,8 @@
 		54053446220C49A800FD431D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053445220C49A800FD431D /* ProfileAPI.swift */; };
 		54053448220C4CB300FD431D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053447220C4CB300FD431D /* ProfileController.swift */; };
 		5405344A220C4CFC00FD431D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053449220C4CFC00FD431D /* ProfileView.swift */; };
+		54053458220C6C6900FD431D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053457220C6C6900FD431D /* ProfileModel.swift */; };
+		5405345A220CD79200FD431D /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053459220CD79200FD431D /* ProfileEditController.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -57,6 +59,8 @@
 		54053445220C49A800FD431D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		54053447220C4CB300FD431D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		54053449220C4CFC00FD431D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		54053457220C6C6900FD431D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		54053459220CD79200FD431D /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		54053434220B24EC00FD431D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				54053457220C6C6900FD431D /* ProfileModel.swift */,
 				54053435220B24FB00FD431D /* SettingsModel.swift */,
 			);
 			path = Settings;
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				54053447220C4CB300FD431D /* ProfileController.swift */,
+				54053459220CD79200FD431D /* ProfileEditController.swift */,
 				54F98FD72208FE280030ED4C /* SettingsController.swift */,
 			);
 			path = Settings;
@@ -458,6 +464,7 @@
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
 				54053444220BB37500FD431D /* ProjectListModel.swift in Sources */,
 				54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */,
+				5405345A220CD79200FD431D /* ProfileEditController.swift in Sources */,
 				5405343F220BB33300FD431D /* ProjectListView.swift in Sources */,
 				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
 				54053426220A176000FD431D /* PackagesView.swift in Sources */,
@@ -466,6 +473,7 @@
 				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
 				5445738E22078CA7009F2416 /* UtilitiesUI.swift in Sources */,
 				5405343C220BB25A00FD431D /* ProjectAPI.swift in Sources */,
+				54053458220C6C6900FD431D /* ProfileModel.swift in Sources */,
 				54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */,

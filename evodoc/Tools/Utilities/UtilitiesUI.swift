@@ -80,7 +80,18 @@ class UtilitiesUI {
         area.numberOfLines = 0;
         return area;
     }
-    
+
+    // Link
+    static func createLinkDark(_ text: String) -> UILabel {
+        let area = UILabel();
+        area.text = text;
+        area.font = UIFont(name: area.font.fontName, size: 18)
+        area.textColor = PaletteConfig.linkDark;
+        area.lineBreakMode = .byWordWrapping;
+        area.numberOfLines = 0;
+        return area;
+    }
+
     // Header 1
     static func createHeader1(_ text: String) -> UILabel {
         let area = UILabel();

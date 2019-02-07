@@ -8,14 +8,6 @@
 
 import Alamofire
 
-struct ProfileAPIGetProfileSuccessModel: Codable {
-    var avatar: String;
-    var email: String;
-    var name: String?;
-    var username: String;
-}
-
-
 class ProfileAPI {
     // Get Profile
     // ---------------------------------------------------------------------------------------------
@@ -43,6 +35,53 @@ class ProfileAPI {
                         // print(error)
                         Utilities.viewAlert(title: "Authorization Error", message: "Username/E-mail or password is wrong.")
                     }
+                }
+        }
+    }
+    
+    
+    // Save profile
+    // ---------------------------------------------------------------------------------------------
+    static func saveProfile(
+        name: String,
+        username: String,
+        email: String,
+        callback: @escaping ((Bool) -> ())
+        ) {
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        let oldName = (ProfileModel.cells[0] as! ProfileCellKeyEditView).cellvalue;
+        let oldUsername = (ProfileModel.cells[1] as! ProfileCellKeyEditView).cellvalue;
+        let oldEmail = (ProfileModel.cells[2] as! ProfileCellKeyEditView).cellvalue;
+        
+        var params: Parameters = [:];
+        if(name != oldName) {
+            params["name"] = name
+        }
+        if(username != oldUsername) {
+            params["username"] = username
+        }
+        if(email != oldEmail) {
+            params["email"] = email
+        }
+        
+        Alamofire.request(
+            ServerConfig.host("/user/account"),
+            method: .patch,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    callback(false)
                 }
         }
     }
