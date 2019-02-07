@@ -13,6 +13,10 @@
 		5405342A220A21CA00FD431D /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053429220A21CA00FD431D /* AboutController.swift */; };
 		5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405342D220B224500FD431D /* SettingsDefaultCellView.swift */; };
 		54053436220B24FB00FD431D /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053435220B24FB00FD431D /* SettingsModel.swift */; };
+		5405343C220BB25A00FD431D /* ProjectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405343B220BB25A00FD431D /* ProjectAPI.swift */; };
+		5405343F220BB33300FD431D /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405343E220BB33300FD431D /* ProjectListView.swift */; };
+		54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053440220BB34B00FD431D /* ProjectTableCellView.swift */; };
+		54053444220BB37500FD431D /* ProjectListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053443220BB37500FD431D /* ProjectListModel.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -43,6 +47,10 @@
 		54053429220A21CA00FD431D /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		5405342D220B224500FD431D /* SettingsDefaultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDefaultCellView.swift; sourceTree = "<group>"; };
 		54053435220B24FB00FD431D /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		5405343B220BB25A00FD431D /* ProjectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectAPI.swift; sourceTree = "<group>"; };
+		5405343E220BB33300FD431D /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		54053440220BB34B00FD431D /* ProjectTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableCellView.swift; sourceTree = "<group>"; };
+		54053443220BB37500FD431D /* ProjectListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListModel.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -105,6 +113,23 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		5405343D220BB32A00FD431D /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				5405343E220BB33300FD431D /* ProjectListView.swift */,
+				54053440220BB34B00FD431D /* ProjectTableCellView.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		54053442220BB36800FD431D /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				54053443220BB37500FD431D /* ProjectListModel.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		544573882207792F009F2416 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +177,7 @@
 		549D5B8F21D4184E00A7991B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54053442220BB36800FD431D /* Project */,
 				54053434220B24EC00FD431D /* Settings */,
 				5445738022075682009F2416 /* AuthModel.swift */,
 			);
@@ -161,6 +187,7 @@
 		549D5B9021D4185600A7991B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5405343D220BB32A00FD431D /* Project */,
 				54053431220B245400FD431D /* Settings */,
 				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
 				5445738B2207886F009F2416 /* AuthSignInView.swift */,
@@ -190,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				54F98FD12208CE3F0030ED4C /* AuthAPI.swift */,
+				5405343B220BB25A00FD431D /* ProjectAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -355,13 +383,16 @@
 				5405342A220A21CA00FD431D /* AboutController.swift in Sources */,
 				54F98FD82208FE290030ED4C /* SettingsController.swift in Sources */,
 				549D5B8021D414CA00A7991B /* RootController.swift in Sources */,
+				54053444220BB37500FD431D /* ProjectListModel.swift in Sources */,
 				54F98FD62208FB280030ED4C /* DocumentationController.swift in Sources */,
+				5405343F220BB33300FD431D /* ProjectListView.swift in Sources */,
 				544573942207ACF4009F2416 /* AuthSignUpController.swift in Sources */,
 				54053426220A176000FD431D /* PackagesView.swift in Sources */,
 				54F98FD22208CE3F0030ED4C /* AuthAPI.swift in Sources */,
 				54053428220A21C500FD431D /* AboutView.swift in Sources */,
 				5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */,
 				5445738E22078CA7009F2416 /* UtilitiesUI.swift in Sources */,
+				5405343C220BB25A00FD431D /* ProjectAPI.swift in Sources */,
 				54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */,
@@ -371,6 +402,7 @@
 				544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */,
+				54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
 				540534242209D42600FD431D /* DocumentationView.swift in Sources */,
 			);
