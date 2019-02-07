@@ -106,8 +106,8 @@
 		54053431220B245400FD431D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				5405342D220B224500FD431D /* SettingsDefaultCellView.swift */,
 				54053449220C4CFC00FD431D /* ProfileView.swift */,
+				5405342D220B224500FD431D /* SettingsDefaultCellView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -120,21 +120,89 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		5405343D220BB32A00FD431D /* Project */ = {
+		5405343D220BB32A00FD431D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
 				5405343E220BB33300FD431D /* ProjectListView.swift */,
 				54053440220BB34B00FD431D /* ProjectTableCellView.swift */,
 			);
-			path = Project;
+			path = Projects;
 			sourceTree = "<group>";
 		};
-		54053442220BB36800FD431D /* Project */ = {
+		54053442220BB36800FD431D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
 				54053443220BB37500FD431D /* ProjectListModel.swift */,
 			);
-			path = Project;
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		5405344D220C581E00FD431D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				54053447220C4CB300FD431D /* ProfileController.swift */,
+				54F98FD72208FE280030ED4C /* SettingsController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5405344E220C584F00FD431D /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				54F98FDA220901000030ED4C /* ProjectsController.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		5405344F220C585900FD431D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				54F98FDC220901310030ED4C /* PackagesController.swift */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		54053450220C586500FD431D /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				54053429220A21CA00FD431D /* AboutController.swift */,
+				54F98FD52208FB280030ED4C /* DocumentationController.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		54053451220C589400FD431D /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				54053427220A21C500FD431D /* AboutView.swift */,
+				540534232209D42600FD431D /* DocumentationView.swift */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		54053452220C58E300FD431D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				5445738B2207886F009F2416 /* AuthSignInView.swift */,
+				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		54053453220C58ED00FD431D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				54053425220A175F00FD431D /* PackagesView.swift */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		54053454220C599F00FD431D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				5445738022075682009F2416 /* AuthModel.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		544573882207792F009F2416 /* Tools */ = {
@@ -171,12 +239,12 @@
 			children = (
 				544573882207792F009F2416 /* Tools */,
 				549D5B9121D4186000A7991B /* Controller */,
-				549D5B9021D4185600A7991B /* View */,
 				549D5B8F21D4184E00A7991B /* Model */,
+				549D5B9021D4185600A7991B /* View */,
 				549D5B7D21D414CA00A7991B /* AppDelegate.swift */,
 				549D5B8421D414CC00A7991B /* Assets.xcassets */,
-				549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */,
 				549D5B8921D414CC00A7991B /* Info.plist */,
+				549D5B8621D414CC00A7991B /* LaunchScreen.storyboard */,
 			);
 			path = evodoc;
 			sourceTree = "<group>";
@@ -184,9 +252,9 @@
 		549D5B8F21D4184E00A7991B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				54053442220BB36800FD431D /* Project */,
+				54053454220C599F00FD431D /* Authorization */,
+				54053442220BB36800FD431D /* Projects */,
 				54053434220B24EC00FD431D /* Settings */,
-				5445738022075682009F2416 /* AuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,13 +262,11 @@
 		549D5B9021D4185600A7991B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5405343D220BB32A00FD431D /* Project */,
+				54053452220C58E300FD431D /* Authorization */,
+				54053451220C589400FD431D /* Documentation */,
+				54053453220C58ED00FD431D /* Packages */,
+				5405343D220BB32A00FD431D /* Projects */,
 				54053431220B245400FD431D /* Settings */,
-				544573952207AD0D009F2416 /* AuthSignUpView.swift */,
-				5445738B2207886F009F2416 /* AuthSignInView.swift */,
-				54053425220A175F00FD431D /* PackagesView.swift */,
-				54053427220A21C500FD431D /* AboutView.swift */,
-				540534232209D42600FD431D /* DocumentationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,14 +275,12 @@
 			isa = PBXGroup;
 			children = (
 				54F98FD9220900E40030ED4C /* Authorization */,
-				549D5B7F21D414CA00A7991B /* RootController.swift */,
+				54053450220C586500FD431D /* Documentation */,
+				5405344F220C585900FD431D /* Packages */,
+				5405344E220C584F00FD431D /* Projects */,
+				5405344D220C581E00FD431D /* Settings */,
 				544573912207AAB9009F2416 /* DashboardController.swift */,
-				54F98FDA220901000030ED4C /* ProjectsController.swift */,
-				54F98FDC220901310030ED4C /* PackagesController.swift */,
-				54F98FD52208FB280030ED4C /* DocumentationController.swift */,
-				54053429220A21CA00FD431D /* AboutController.swift */,
-				54F98FD72208FE280030ED4C /* SettingsController.swift */,
-				54053447220C4CB300FD431D /* ProfileController.swift */,
+				549D5B7F21D414CA00A7991B /* RootController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,8 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				54F98FD12208CE3F0030ED4C /* AuthAPI.swift */,
-				5405343B220BB25A00FD431D /* ProjectAPI.swift */,
 				54053445220C49A800FD431D /* ProfileAPI.swift */,
+				5405343B220BB25A00FD431D /* ProjectAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -243,8 +307,8 @@
 		54F98FD42208D7680030ED4C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5445738D22078CA7009F2416 /* UtilitiesUI.swift */,
 				5445738F2207A185009F2416 /* Utilities.swift */,
+				5445738D22078CA7009F2416 /* UtilitiesUI.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -252,8 +316,8 @@
 		54F98FD9220900E40030ED4C /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				544573932207ACF4009F2416 /* AuthSignUpController.swift */,
 				5445738622076D35009F2416 /* AuthSignInController.swift */,
+				544573932207ACF4009F2416 /* AuthSignUpController.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
