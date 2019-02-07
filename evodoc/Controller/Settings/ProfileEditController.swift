@@ -1,5 +1,5 @@
 //
-//  ProfileController.swift
+//  ProfileEditController.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 07/02/2019.
@@ -10,7 +10,7 @@
 import UIKit
 import SnapKit
 
-class ProfileController: UIViewController {
+class ProfileEditController: UIViewController {
     
     // ---------------------------------------------------------------------------------------------
     // Data
@@ -24,7 +24,7 @@ class ProfileController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.title = "Profile"
+        self.title = "Edit profile"
         
         let tableView = UITableView(frame: .zero, style: .grouped)
         view.addSubview(tableView);
@@ -43,64 +43,62 @@ class ProfileController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(ProfileCellKeyValueView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
+        tableView.register(ProfileCellKeyEditView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
         tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
+        
+        ProfileAPI.getProfile {
+            data in
+            ProfileModel.cells.removeAll();
+            
+            let name = ProfileCellKeyEditView();
+            name.setName(key: "Name", value: data.name ?? "");
+            ProfileModel.cells.append(name);
+            
+            let username = ProfileCellKeyEditView();
+            username.setName(key: "Username", value: data.username);
+            ProfileModel.cells.append(username);
+            
+            let email = ProfileCellKeyEditView();
+            email.setName(key: "E-mail", value: data.email);
+            ProfileModel.cells.append(email);
+            
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.update()
-        
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         
         navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.gotoEdit))
+            UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.saveData))
     }
     
     // ---------------------------------------------------------------------------------------------
     // Gestures
     // ---------------------------------------------------------------------------------------------
     
-    @objc func gotoEdit(){
-        navigationController?.pushViewController(ProfileEditController(), animated: true);
+    @objc func saveData(){
+        
+        let name = (ProfileModel.cells[0] as! ProfileCellKeyEditView).valueLabel.text!;
+        let username = (ProfileModel.cells[1] as! ProfileCellKeyEditView).valueLabel.text!;
+        let email = (ProfileModel.cells[2] as! ProfileCellKeyEditView).valueLabel.text!;
+        
+        ProfileAPI.saveProfile(
+            name: name,
+            username: username,
+            email: email,
+            callback: {
+                success in
+                if(success) {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    Utilities.viewAlert(title: "Unable to update", message: "Some data are too short or non unique.")
+                }
+        })
     }
-    
-    
-    // ---------------------------------------------------------------------------------------------
-    // Methods
-    // ---------------------------------------------------------------------------------------------
-    
-    func update() {
-        ProfileAPI.getProfile {
-            data in
-            ProfileModel.cells.removeAll();
-            
-            let avatar = ProfileCellAvatarView();
-            avatar.setHash(hash: data.avatar);
-            ProfileModel.cells.append(avatar);
-            
-            let name = ProfileCellKeyValueView();
-            name.setName(key: "Name", value: data.name ?? "");
-            ProfileModel.cells.append(name);
-            
-            let username = ProfileCellKeyValueView();
-            username.setName(key: "Username", value: data.username);
-            ProfileModel.cells.append(username);
-            
-            let email = ProfileCellKeyValueView();
-            email.setName(key: "E-mail", value: data.email);
-            ProfileModel.cells.append(email);
-            
-            let token = ProfileCellKeyValueView();
-            token.setName(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!);
-            ProfileModel.cells.append(token);
-            
-            self.tableView.reloadData()
-        }
-    }
-
 }
 
 
@@ -108,7 +106,7 @@ class ProfileController: UIViewController {
 // Table Data Source
 // ---------------------------------------------------------------------------------------------
 
-extension ProfileController: UITableViewDataSource {
+extension ProfileEditController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ProfileModel.cells.count
@@ -125,7 +123,7 @@ extension ProfileController: UITableViewDataSource {
 // Table Delegate
 // ---------------------------------------------------------------------------------------------
 
-extension ProfileController: UITableViewDelegate {
+extension ProfileEditController: UITableViewDelegate {
     
     // Get titles for sections
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -135,6 +133,6 @@ extension ProfileController: UITableViewDelegate {
     // Select cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Immidiatelly deselect cell
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
