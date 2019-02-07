@@ -17,6 +17,9 @@
 		5405343F220BB33300FD431D /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405343E220BB33300FD431D /* ProjectListView.swift */; };
 		54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053440220BB34B00FD431D /* ProjectTableCellView.swift */; };
 		54053444220BB37500FD431D /* ProjectListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053443220BB37500FD431D /* ProjectListModel.swift */; };
+		54053446220C49A800FD431D /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053445220C49A800FD431D /* ProfileAPI.swift */; };
+		54053448220C4CB300FD431D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053447220C4CB300FD431D /* ProfileController.swift */; };
+		5405344A220C4CFC00FD431D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053449220C4CFC00FD431D /* ProfileView.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -51,6 +54,9 @@
 		5405343E220BB33300FD431D /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
 		54053440220BB34B00FD431D /* ProjectTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableCellView.swift; sourceTree = "<group>"; };
 		54053443220BB37500FD431D /* ProjectListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListModel.swift; sourceTree = "<group>"; };
+		54053445220C49A800FD431D /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		54053447220C4CB300FD431D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		54053449220C4CFC00FD431D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5405342D220B224500FD431D /* SettingsDefaultCellView.swift */,
+				54053449220C4CFC00FD431D /* ProfileView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 				54F98FD52208FB280030ED4C /* DocumentationController.swift */,
 				54053429220A21CA00FD431D /* AboutController.swift */,
 				54F98FD72208FE280030ED4C /* SettingsController.swift */,
+				54053447220C4CB300FD431D /* ProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			children = (
 				54F98FD12208CE3F0030ED4C /* AuthAPI.swift */,
 				5405343B220BB25A00FD431D /* ProjectAPI.swift */,
+				54053445220C49A800FD431D /* ProfileAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -398,12 +407,15 @@
 				5405342E220B224500FD431D /* SettingsDefaultCellView.swift in Sources */,
 				5445738122075682009F2416 /* AuthModel.swift in Sources */,
 				54F98FDD220901310030ED4C /* PackagesController.swift in Sources */,
+				54053448220C4CB300FD431D /* ProfileController.swift in Sources */,
 				544573902207A185009F2416 /* Utilities.swift in Sources */,
+				5405344A220C4CFC00FD431D /* ProfileView.swift in Sources */,
 				544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */,
 				54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
+				54053446220C49A800FD431D /* ProfileAPI.swift in Sources */,
 				540534242209D42600FD431D /* DocumentationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
