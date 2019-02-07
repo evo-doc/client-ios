@@ -11,6 +11,16 @@ import SnapKit
 
 class AboutView: UIScrollView {
     
+    // ---------------------------------------------------------------------------------------------
+    // Data
+    // ---------------------------------------------------------------------------------------------
+    
+    var linkGithubOrg = UtilitiesUI.createLinkDark("Github Organization");
+    
+    // ---------------------------------------------------------------------------------------------
+    // Init
+    // ---------------------------------------------------------------------------------------------
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -21,7 +31,7 @@ class AboutView: UIScrollView {
             
             UtilitiesUI.createTextDark("The main idea of the project is to organise documents into smaller parts – modules that could be repeatedly used in many parts of many papers, e.g. a license in different manuals."),
             UtilitiesUI.createHeader1("Source code"),
-            UtilitiesUI.createTextDark("Github.com/evo-doc")
+            self.linkGithubOrg
         )
         
         self.addSubview(stack)

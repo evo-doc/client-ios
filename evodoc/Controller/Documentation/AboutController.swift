@@ -11,6 +11,8 @@ import SnapKit
 
 class AboutController: UIViewController {
     
+    var contentView: AboutView!;
+    
     // ---------------------------------------------------------------------------------------------
     // Lifecycle functions
     // ---------------------------------------------------------------------------------------------
@@ -27,6 +29,9 @@ class AboutController: UIViewController {
             make in
             make.edges.equalToSuperview()
         }
+        self.contentView = contentView;
+        
+        setGestures()
     }
     
     
@@ -45,7 +50,16 @@ class AboutController: UIViewController {
     //
     // ---------------------------------------------------------------------------------------------
     
-    @objc func gotoAboutUs(){
+    func setGestures() {
+        // Github Org
+        let gestLinkGithubOrg = UITapGestureRecognizer(target: self, action: #selector(self.linkSafariGithubOrg))
+        self.contentView.linkGithubOrg.isUserInteractionEnabled = true;
+        self.contentView.linkGithubOrg.addGestureRecognizer(gestLinkGithubOrg);
+    }
+    
+    @objc func linkSafariGithubOrg(){
+        guard let url = URL(string: "https://github.com/evo-doc/") else { return }
+        UIApplication.shared.open(url)
     }
 }
 

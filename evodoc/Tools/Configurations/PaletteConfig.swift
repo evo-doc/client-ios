@@ -11,4 +11,5 @@ import UIKit
 struct PaletteConfig {
     static let background = UIColor(red: 51/255, green: 62/255, blue: 79/255, alpha: 1.0);
     static let textDark = UIColor(red: 73/255, green: 73/255, blue: 73/255, alpha: 1.0);
+    static let linkDark = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0);
 }
