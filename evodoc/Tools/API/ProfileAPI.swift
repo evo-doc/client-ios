@@ -8,14 +8,6 @@
 
 import Alamofire
 
-struct ProfileAPIGetProfileSuccessModel: Codable {
-    var avatar: String;
-    var email: String;
-    var name: String?;
-    var username: String;
-}
-
-
 class ProfileAPI {
     // Get Profile
     // ---------------------------------------------------------------------------------------------
