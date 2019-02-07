@@ -103,6 +103,18 @@ extension SettingsController: UITableViewDelegate {
             self.navigationController?.pushViewController(ProfileController(), animated: true)
         }
         
+        
+        if(indexPath.section == 1 && indexPath.row == 0) {
+            guard let url = URL(string: "https://github.com/evo-doc/") else { return }
+            UIApplication.shared.open(url)
+        }
+        
+        if(indexPath.section == 1 && indexPath.row == 1) {
+            guard let url = URL(string: "https://github.com/evo-doc/client-ios/issues") else { return }
+            UIApplication.shared.open(url)
+        }
+        
+        
         if(indexPath.section == 2 && indexPath.row == 0) {
             UserDefaults.standard.set(nil, forKey: "token");
             self.navigationController?.popToRootViewController(animated: true);
