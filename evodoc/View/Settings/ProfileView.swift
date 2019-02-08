@@ -53,7 +53,7 @@ class ProfileCellAvatarView: UITableViewCell {
         contentView.addSubview(imageAvatar)
         imageAvatar.snp.makeConstraints{
             make in
-            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 0))
+            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 0))
             make.centerX.equalToSuperview()
             make.bottom.lessThanOrEqualToSuperview().inset(15)
         }

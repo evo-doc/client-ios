@@ -53,9 +53,9 @@ class ProfileAPI {
             "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
         ]
         
-        let oldName = (ProfileModel.cells[0] as! ProfileCellKeyEditView).cellvalue;
-        let oldUsername = (ProfileModel.cells[1] as! ProfileCellKeyEditView).cellvalue;
-        let oldEmail = (ProfileModel.cells[2] as! ProfileCellKeyEditView).cellvalue;
+        let oldName = (ProfileModel.cellsForEdit[0] as! ProfileCellKeyEditView).cellvalue;
+        let oldUsername = (ProfileModel.cellsForEdit[1] as! ProfileCellKeyEditView).cellvalue;
+        let oldEmail = (ProfileModel.cellsForEdit[2] as! ProfileCellKeyEditView).cellvalue;
         
         var params: Parameters = [:];
         if(name != oldName) {

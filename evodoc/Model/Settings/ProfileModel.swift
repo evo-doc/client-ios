@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileModel {
     static var cells: [UITableViewCell] = [];
+    static var cellsForEdit: [UITableViewCell] = [];
 }
 
 struct ProfileAPIGetProfileSuccessModel: Codable {

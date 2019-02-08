@@ -121,6 +121,14 @@ extension ProfileController: UITableViewDataSource {
         let cell = ProfileModel.cells[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil;
+    }
 }
 
 // ---------------------------------------------------------------------------------------------
