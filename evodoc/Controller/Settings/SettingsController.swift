@@ -40,7 +40,7 @@ class SettingsController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(SettingsDefaultCellView.self, forCellReuseIdentifier: SettingsDefaultCellView.identifier)
+        tableView.register(UICellTextArrow.self, forCellReuseIdentifier: UICellTextArrow.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,26 +60,17 @@ class SettingsController: UIViewController {
 extension SettingsController: UITableViewDataSource {
     // Get number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SettingsModel.data.count
+        return SettingsModel.cells.count;
     }
     
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsModel.data[section].count
+        return SettingsModel.cells[section].count;
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let user = SettingsModel.data[indexPath.section][indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsDefaultCellView.identifier, for: indexPath) as? SettingsDefaultCellView else {
-            return UITableViewCell()
-        }
-        cell.titleLabel.text = user.name
-        cell.titleLabel.textColor = user.textColor
-        cell.accessoryType = .disclosureIndicator
-        
-        return cell
+        return SettingsModel.cells[indexPath.section][indexPath.row];
     }
 }
 

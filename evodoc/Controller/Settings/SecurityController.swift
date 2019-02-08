@@ -46,26 +46,38 @@ class SecurityController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(ProfileCellKeyEditView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
+        tableView.register(UICellTitleInput.self, forCellReuseIdentifier: UICellTitleInput.identifier)
         
         ProfileAPI.getProfile {
             data in
             SecurityModel.cells.removeAll();
             
-            let oldPassword = ProfileCellKeyEditView();
-            oldPassword.setName(key: "Old password", value: "");
-            oldPassword.valueLabel.isSecureTextEntry = true;
+            let oldPassword = UICellTitleInput();
+            oldPassword.setData(key: "Old password", value: "");
+            oldPassword.isHidden(true);
             SecurityModel.cells.append(oldPassword);
             
-            let newPassword = ProfileCellKeyEditView();
-            newPassword.setName(key: "New password", value: "");
-            newPassword.valueLabel.isSecureTextEntry = true;
+            let oldPasswordNotes = UICellNotes();
+            oldPasswordNotes.setData(value: "Your current password.");
+            SecurityModel.cells.append(oldPasswordNotes);
+            
+            let newPassword = UICellTitleInput();
+            newPassword.setData(key: "New password", value: "");
+            newPassword.isHidden(true);
             SecurityModel.cells.append(newPassword);
             
-            let repeatPassword = ProfileCellKeyEditView();
-            repeatPassword.setName(key: "Repeat password", value: "");
-            repeatPassword.valueLabel.isSecureTextEntry = true;
+            let newPasswordNotes = UICellNotes();
+            newPasswordNotes.setData(value: "A password should have at least one uppercase, one lowercase and one number.");
+            SecurityModel.cells.append(newPasswordNotes);
+            
+            let repeatPassword = UICellTitleInput();
+            repeatPassword.setData(key: "Repeat password", value: "");
+            repeatPassword.isHidden(true);
             SecurityModel.cells.append(repeatPassword);
+            
+            let repeatPasswordNotes = UICellNotes();
+            repeatPasswordNotes.setData(value: "Repeat your new password.");
+            SecurityModel.cells.append(repeatPasswordNotes);
             
             self.tableView.reloadData()
         }
@@ -87,9 +99,9 @@ class SecurityController: UIViewController {
     
     @objc func saveData(){
         
-        let oldPassword = (SecurityModel.cells[0] as! ProfileCellKeyEditView).valueLabel.text!;
-        let newPassword = (SecurityModel.cells[1] as! ProfileCellKeyEditView).valueLabel.text!;
-        let repeatPassword = (SecurityModel.cells[2] as! ProfileCellKeyEditView).valueLabel.text!;
+        let oldPassword = (SecurityModel.cells[0] as! UICellTitleInput).getValue();
+        let newPassword = (SecurityModel.cells[2] as! UICellTitleInput).getValue();
+        let repeatPassword = (SecurityModel.cells[4] as! UICellTitleInput).getValue();
         
         ProfileAPI.patchPassword(
             oldPassword: oldPassword,
@@ -114,19 +126,20 @@ class SecurityController: UIViewController {
 extension SecurityController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SecurityModel.cells.count
+        return SecurityModel.cells.count;
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = SecurityModel.cells[indexPath.row]
-        return cell
+        return SecurityModel.cells[indexPath.row];
     }
     
+    // Remove sctions
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return CGFloat.leastNonzeroMagnitude;
     }
     
+    // Remove sections
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }

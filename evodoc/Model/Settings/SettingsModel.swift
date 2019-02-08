@@ -9,35 +9,19 @@
 import UIKit
 
 class SettingsModel {
-    
     static var sectionNames: [String] = ["Profile", "Contribution", "Session"];
     
-    static var data: [[SettingsCellModel]] = [
+    static var cells: [[UITableViewCell]] = [
         [
-            SettingsCellModel(name: "View profile"),
-            SettingsCellModel(name: "Security")
+            UICellTextArrow().setData(title: "View profile"),
+            UICellTextArrow().setData(title: "Security"),
         ],
         [
-            SettingsCellModel(name: "Github organization"),
-            SettingsCellModel(name: "Report an issue")
+            UICellTextArrow().setData(title: "Github organization"),
+            UICellTextArrow().setData(title: "Report an issue")
         ],
         [
-            SettingsCellModel(name: "Logout", textColor: UIColor.red)
+            UICellTextArrow().setData(title: "Logout", titleColor: UIColor.red)
         ]
     ]
-}
-
-class SettingsCellModel {
-    let name: String;
-    let textColor: UIColor;
-    
-    init(name: String) {
-        self.name = name;
-        self.textColor = .black;
-    }
-    
-    init(name: String, textColor: UIColor) {
-        self.name = name;
-        self.textColor = textColor;
-    }
 }
