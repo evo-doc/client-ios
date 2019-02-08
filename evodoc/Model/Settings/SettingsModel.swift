@@ -14,7 +14,8 @@ class SettingsModel {
     
     static var data: [[SettingsCellModel]] = [
         [
-            SettingsCellModel(name: "View profile")
+            SettingsCellModel(name: "View profile"),
+            SettingsCellModel(name: "Security")
         ],
         [
             SettingsCellModel(name: "Github organization"),

@@ -22,6 +22,8 @@
 		5405344A220C4CFC00FD431D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053449220C4CFC00FD431D /* ProfileView.swift */; };
 		54053458220C6C6900FD431D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053457220C6C6900FD431D /* ProfileModel.swift */; };
 		5405345A220CD79200FD431D /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053459220CD79200FD431D /* ProfileEditController.swift */; };
+		5405345C220DA3E800FD431D /* SecurityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405345B220DA3E800FD431D /* SecurityController.swift */; };
+		5405345E220DA43500FD431D /* SecurityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405345D220DA43500FD431D /* SecurityModel.swift */; };
 		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
@@ -61,6 +63,8 @@
 		54053449220C4CFC00FD431D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		54053457220C6C6900FD431D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		54053459220CD79200FD431D /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
+		5405345B220DA3E800FD431D /* SecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityController.swift; sourceTree = "<group>"; };
+		5405345D220DA43500FD431D /* SecurityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityModel.swift; sourceTree = "<group>"; };
 		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				54053457220C6C6900FD431D /* ProfileModel.swift */,
+				5405345D220DA43500FD431D /* SecurityModel.swift */,
 				54053435220B24FB00FD431D /* SettingsModel.swift */,
 			);
 			path = Settings;
@@ -147,6 +152,7 @@
 			children = (
 				54053447220C4CB300FD431D /* ProfileController.swift */,
 				54053459220CD79200FD431D /* ProfileEditController.swift */,
+				5405345B220DA3E800FD431D /* SecurityController.swift */,
 				54F98FD72208FE280030ED4C /* SettingsController.swift */,
 			);
 			path = Settings;
@@ -458,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54053436220B24FB00FD431D /* SettingsModel.swift in Sources */,
+				5405345C220DA3E800FD431D /* SecurityController.swift in Sources */,
 				5445738A22077940009F2416 /* PaletteConfig.swift in Sources */,
 				5405342A220A21CA00FD431D /* AboutController.swift in Sources */,
 				54F98FD82208FE290030ED4C /* SettingsController.swift in Sources */,
@@ -483,6 +490,7 @@
 				544573902207A185009F2416 /* Utilities.swift in Sources */,
 				5405344A220C4CFC00FD431D /* ProfileView.swift in Sources */,
 				544573962207AD0D009F2416 /* AuthSignUpView.swift in Sources */,
+				5405345E220DA43500FD431D /* SecurityModel.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */,
 				54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */,

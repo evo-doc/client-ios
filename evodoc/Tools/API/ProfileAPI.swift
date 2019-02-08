@@ -85,4 +85,44 @@ class ProfileAPI {
                 }
         }
     }
+    
+    
+    // Patch password
+    // ---------------------------------------------------------------------------------------------
+    static func patchPassword(
+        oldPassword: String,
+        newPassword: String,
+        repeatPassword: String,
+        callback: @escaping ((Bool) -> ())
+        ) {
+        
+        if (repeatPassword != newPassword) {
+            callback(false)
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/user/account/password"),
+            method: .patch,
+            parameters: [
+                "old_password": oldPassword,
+                "new_password": newPassword,
+            ],
+            encoding: JSONEncoding.default,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    callback(false)
+                }
+        }
+    }
 }
