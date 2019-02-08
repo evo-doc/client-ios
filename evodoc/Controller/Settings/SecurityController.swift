@@ -1,5 +1,5 @@
 //
-//  ProfileController.swift
+//  ProfileEditController.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 07/02/2019.
@@ -10,7 +10,7 @@
 import UIKit
 import SnapKit
 
-class ProfileController: UIViewController {
+class SecurityController: UIViewController {
     
     // ---------------------------------------------------------------------------------------------
     // Data
@@ -24,7 +24,7 @@ class ProfileController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.title = "Profile"
+        self.title = "Security"
         
         let tableView = UITableView(frame: .zero, style: .grouped)
         view.addSubview(tableView);
@@ -32,8 +32,9 @@ class ProfileController: UIViewController {
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
-        tableView.separatorColor = UIColor(white: 1, alpha: 0)
         tableView.backgroundColor = .white
+        tableView.allowsMultipleSelection = false
+        tableView.separatorStyle = .none
         self.tableView = tableView
     }
     
@@ -45,64 +46,64 @@ class ProfileController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(ProfileCellKeyValueView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
-        tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
+        tableView.register(ProfileCellKeyEditView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
+        
+        ProfileAPI.getProfile {
+            data in
+            SecurityModel.cells.removeAll();
+            
+            let oldPassword = ProfileCellKeyEditView();
+            oldPassword.setName(key: "Old password", value: "");
+            oldPassword.valueLabel.isSecureTextEntry = true;
+            SecurityModel.cells.append(oldPassword);
+            
+            let newPassword = ProfileCellKeyEditView();
+            newPassword.setName(key: "New password", value: "");
+            newPassword.valueLabel.isSecureTextEntry = true;
+            SecurityModel.cells.append(newPassword);
+            
+            let repeatPassword = ProfileCellKeyEditView();
+            repeatPassword.setName(key: "Repeat password", value: "");
+            repeatPassword.valueLabel.isSecureTextEntry = true;
+            SecurityModel.cells.append(repeatPassword);
+            
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.update()
-        
         // Show Navbar
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         
         navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.gotoEdit))
+            UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.saveData))
     }
     
     // ---------------------------------------------------------------------------------------------
     // Gestures
     // ---------------------------------------------------------------------------------------------
     
-    @objc func gotoEdit(){
-        navigationController?.pushViewController(ProfileEditController(), animated: true);
+    @objc func saveData(){
+        
+        let oldPassword = (SecurityModel.cells[0] as! ProfileCellKeyEditView).valueLabel.text!;
+        let newPassword = (SecurityModel.cells[1] as! ProfileCellKeyEditView).valueLabel.text!;
+        let repeatPassword = (SecurityModel.cells[2] as! ProfileCellKeyEditView).valueLabel.text!;
+        
+        ProfileAPI.patchPassword(
+            oldPassword: oldPassword,
+            newPassword: newPassword,
+            repeatPassword: repeatPassword,
+            callback: {
+                success in
+                if(success) {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    Utilities.viewAlert(title: "Unable to update", message: "The old password is incorrect or the new one is too short or dont have [A-Z]+ [a-z]+ [0-9]+.")
+                }
+        })
     }
-    
-    
-    // ---------------------------------------------------------------------------------------------
-    // Methods
-    // ---------------------------------------------------------------------------------------------
-    
-    func update() {
-        ProfileAPI.getProfile {
-            data in
-            ProfileModel.cells.removeAll();
-            
-            let avatar = ProfileCellAvatarView();
-            avatar.setHash(hash: data.avatar);
-            ProfileModel.cells.append(avatar);
-            
-            let name = ProfileCellKeyValueView();
-            name.setName(key: "Name", value: data.name ?? "");
-            ProfileModel.cells.append(name);
-            
-            let username = ProfileCellKeyValueView();
-            username.setName(key: "Username", value: data.username);
-            ProfileModel.cells.append(username);
-            
-            let email = ProfileCellKeyValueView();
-            email.setName(key: "E-mail", value: data.email);
-            ProfileModel.cells.append(email);
-            
-            let token = ProfileCellKeyValueView();
-            token.setName(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!);
-            ProfileModel.cells.append(token);
-            
-            self.tableView.reloadData()
-        }
-    }
-
 }
 
 
@@ -110,15 +111,15 @@ class ProfileController: UIViewController {
 // Table Data Source
 // ---------------------------------------------------------------------------------------------
 
-extension ProfileController: UITableViewDataSource {
+extension SecurityController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileModel.cells.count
+        return SecurityModel.cells.count
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ProfileModel.cells[indexPath.row]
+        let cell = SecurityModel.cells[indexPath.row]
         return cell
     }
     
@@ -135,5 +136,5 @@ extension ProfileController: UITableViewDataSource {
 // Table Delegate
 // ---------------------------------------------------------------------------------------------
 
-extension ProfileController: UITableViewDelegate {
+extension SecurityController: UITableViewDelegate {
 }

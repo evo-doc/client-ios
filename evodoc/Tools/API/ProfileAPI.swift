@@ -53,9 +53,9 @@ class ProfileAPI {
             "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
         ]
         
-        let oldName = (ProfileModel.cells[0] as! ProfileCellKeyEditView).cellvalue;
-        let oldUsername = (ProfileModel.cells[1] as! ProfileCellKeyEditView).cellvalue;
-        let oldEmail = (ProfileModel.cells[2] as! ProfileCellKeyEditView).cellvalue;
+        let oldName = (ProfileModel.cellsForEdit[0] as! ProfileCellKeyEditView).cellvalue;
+        let oldUsername = (ProfileModel.cellsForEdit[1] as! ProfileCellKeyEditView).cellvalue;
+        let oldEmail = (ProfileModel.cellsForEdit[2] as! ProfileCellKeyEditView).cellvalue;
         
         var params: Parameters = [:];
         if(name != oldName) {
@@ -72,6 +72,46 @@ class ProfileAPI {
             ServerConfig.host("/user/account"),
             method: .patch,
             parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    callback(false)
+                }
+        }
+    }
+    
+    
+    // Patch password
+    // ---------------------------------------------------------------------------------------------
+    static func patchPassword(
+        oldPassword: String,
+        newPassword: String,
+        repeatPassword: String,
+        callback: @escaping ((Bool) -> ())
+        ) {
+        
+        if (repeatPassword != newPassword) {
+            callback(false)
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/user/account/password"),
+            method: .patch,
+            parameters: [
+                "old_password": oldPassword,
+                "new_password": newPassword,
+            ],
             encoding: JSONEncoding.default,
             headers: headers
             )

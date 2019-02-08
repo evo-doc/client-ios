@@ -32,6 +32,9 @@ class ProfileEditController: UIViewController {
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
+        tableView.backgroundColor = .white
+        tableView.allowsMultipleSelection = false
+        tableView.separatorStyle = .none
         self.tableView = tableView
     }
     
@@ -48,19 +51,19 @@ class ProfileEditController: UIViewController {
         
         ProfileAPI.getProfile {
             data in
-            ProfileModel.cells.removeAll();
+            ProfileModel.cellsForEdit.removeAll();
             
             let name = ProfileCellKeyEditView();
             name.setName(key: "Name", value: data.name ?? "");
-            ProfileModel.cells.append(name);
+            ProfileModel.cellsForEdit.append(name);
             
             let username = ProfileCellKeyEditView();
             username.setName(key: "Username", value: data.username);
-            ProfileModel.cells.append(username);
+            ProfileModel.cellsForEdit.append(username);
             
             let email = ProfileCellKeyEditView();
             email.setName(key: "E-mail", value: data.email);
-            ProfileModel.cells.append(email);
+            ProfileModel.cellsForEdit.append(email);
             
             self.tableView.reloadData()
         }
@@ -82,9 +85,9 @@ class ProfileEditController: UIViewController {
     
     @objc func saveData(){
         
-        let name = (ProfileModel.cells[0] as! ProfileCellKeyEditView).valueLabel.text!;
-        let username = (ProfileModel.cells[1] as! ProfileCellKeyEditView).valueLabel.text!;
-        let email = (ProfileModel.cells[2] as! ProfileCellKeyEditView).valueLabel.text!;
+        let name = (ProfileModel.cellsForEdit[0] as! ProfileCellKeyEditView).valueLabel.text!;
+        let username = (ProfileModel.cellsForEdit[1] as! ProfileCellKeyEditView).valueLabel.text!;
+        let email = (ProfileModel.cellsForEdit[2] as! ProfileCellKeyEditView).valueLabel.text!;
         
         ProfileAPI.saveProfile(
             name: name,
@@ -109,13 +112,21 @@ class ProfileEditController: UIViewController {
 extension ProfileEditController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileModel.cells.count
+        return ProfileModel.cellsForEdit.count
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ProfileModel.cells[indexPath.row]
+        let cell = ProfileModel.cellsForEdit[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil;
     }
 }
 
@@ -124,15 +135,4 @@ extension ProfileEditController: UITableViewDataSource {
 // ---------------------------------------------------------------------------------------------
 
 extension ProfileEditController: UITableViewDelegate {
-    
-    // Get titles for sections
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Account"
-    }
-    
-    // Select cell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Immidiatelly deselect cell
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
 }

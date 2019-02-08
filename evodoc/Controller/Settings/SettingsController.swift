@@ -103,6 +103,10 @@ extension SettingsController: UITableViewDelegate {
             self.navigationController?.pushViewController(ProfileController(), animated: true)
         }
         
+        if(indexPath.section == 0 && indexPath.row == 1) {
+            self.navigationController?.pushViewController(SecurityController(), animated: true)
+        }
+        
         
         if(indexPath.section == 1 && indexPath.row == 0) {
             guard let url = URL(string: "https://github.com/evo-doc/") else { return }
