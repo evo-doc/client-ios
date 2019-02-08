@@ -45,7 +45,7 @@ class ProfileController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(ProfileCellKeyValueView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
+        tableView.register(UICellTitleText.self, forCellReuseIdentifier: UICellTitleText.identifier)
         tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
     }
     
@@ -83,20 +83,20 @@ class ProfileController: UIViewController {
             avatar.setHash(hash: data.avatar);
             ProfileModel.cells.append(avatar);
             
-            let name = ProfileCellKeyValueView();
-            name.setName(key: "Name", value: data.name ?? "");
+            let name = UICellTitleText();
+            name.setData(key: "Name", value: data.name ?? "");
             ProfileModel.cells.append(name);
             
-            let username = ProfileCellKeyValueView();
-            username.setName(key: "Username", value: data.username);
+            let username = UICellTitleText();
+            username.setData(key: "Username", value: data.username);
             ProfileModel.cells.append(username);
             
-            let email = ProfileCellKeyValueView();
-            email.setName(key: "E-mail", value: data.email);
+            let email = UICellTitleText();
+            email.setData(key: "E-mail", value: data.email);
             ProfileModel.cells.append(email);
             
-            let token = ProfileCellKeyValueView();
-            token.setName(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!);
+            let token = UICellTitleText();
+            token.setData(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!);
             ProfileModel.cells.append(token);
             
             self.tableView.reloadData()
@@ -113,19 +113,20 @@ class ProfileController: UIViewController {
 extension ProfileController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileModel.cells.count
+        return ProfileModel.cells.count;
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ProfileModel.cells[indexPath.row]
-        return cell
+        return ProfileModel.cells[indexPath.row];
     }
     
+    // Remove sctions
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return CGFloat.leastNonzeroMagnitude;
     }
     
+    // Remove sections
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }

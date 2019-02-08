@@ -46,24 +46,38 @@ class ProfileEditController: UIViewController {
         tableView.delegate = self
         
         // Register all cell types used in table
-        tableView.register(ProfileCellKeyEditView.self, forCellReuseIdentifier: ProfileCellKeyValueView.identifier)
+        tableView.register(UICellTitleInput.self, forCellReuseIdentifier: UICellTitleInput.identifier)
         tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
+        tableView.register(UICellNotes.self, forCellReuseIdentifier: UICellNotes.identifier)
+        
         
         ProfileAPI.getProfile {
             data in
             ProfileModel.cellsForEdit.removeAll();
             
-            let name = ProfileCellKeyEditView();
-            name.setName(key: "Name", value: data.name ?? "");
+            let name = UICellTitleInput();
+            name.setData(key: "Name", value: data.name ?? "");
             ProfileModel.cellsForEdit.append(name);
             
-            let username = ProfileCellKeyEditView();
-            username.setName(key: "Username", value: data.username);
+            let nameNotes = UICellNotes();
+            nameNotes.setData(value: "A name should contain only letters.");
+            ProfileModel.cellsForEdit.append(nameNotes);
+            
+            let username = UICellTitleInput();
+            username.setData(key: "Username", value: data.username);
             ProfileModel.cellsForEdit.append(username);
             
-            let email = ProfileCellKeyEditView();
-            email.setName(key: "E-mail", value: data.email);
+            let usernameNotes = UICellNotes();
+            usernameNotes.setData(value: "A username should contain only letters and numbers. All users should have their own unique username.");
+            ProfileModel.cellsForEdit.append(usernameNotes);
+            
+            let email = UICellTitleInput();
+            email.setData(key: "E-mail", value: data.email);
             ProfileModel.cellsForEdit.append(email);
+            
+            let emailNotes = UICellNotes();
+            emailNotes.setData(value: "E.g.: user@example.com. The email is unique per system.");
+            ProfileModel.cellsForEdit.append(emailNotes);
             
             self.tableView.reloadData()
         }
@@ -85,9 +99,9 @@ class ProfileEditController: UIViewController {
     
     @objc func saveData(){
         
-        let name = (ProfileModel.cellsForEdit[0] as! ProfileCellKeyEditView).valueLabel.text!;
-        let username = (ProfileModel.cellsForEdit[1] as! ProfileCellKeyEditView).valueLabel.text!;
-        let email = (ProfileModel.cellsForEdit[2] as! ProfileCellKeyEditView).valueLabel.text!;
+        let name = (ProfileModel.cellsForEdit[0] as! UICellTitleInput).getValue();
+        let username = (ProfileModel.cellsForEdit[2] as! UICellTitleInput).getValue();
+        let email = (ProfileModel.cellsForEdit[4] as! UICellTitleInput).getValue();
         
         ProfileAPI.saveProfile(
             name: name,
@@ -112,19 +126,20 @@ class ProfileEditController: UIViewController {
 extension ProfileEditController: UITableViewDataSource {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileModel.cellsForEdit.count
+        return ProfileModel.cellsForEdit.count;
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ProfileModel.cellsForEdit[indexPath.row]
-        return cell
+        return ProfileModel.cellsForEdit[indexPath.row];
     }
     
+    // Remove sctions
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return CGFloat.leastNonzeroMagnitude;
     }
     
+    // Remove sections
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }

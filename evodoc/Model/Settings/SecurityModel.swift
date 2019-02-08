@@ -1,5 +1,5 @@
 //
-//  ProfileModel.swift
+//  SecurityModel.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 07/02/2019.
