@@ -32,6 +32,9 @@ class ProfileEditController: UIViewController {
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
+        tableView.backgroundColor = .white
+        tableView.allowsMultipleSelection = false
+        tableView.separatorStyle = .none
         self.tableView = tableView
     }
     
@@ -124,15 +127,4 @@ extension ProfileEditController: UITableViewDataSource {
 // ---------------------------------------------------------------------------------------------
 
 extension ProfileEditController: UITableViewDelegate {
-    
-    // Get titles for sections
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Account"
-    }
-    
-    // Select cell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Immidiatelly deselect cell
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
 }

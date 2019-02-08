@@ -32,6 +32,8 @@ class ProfileController: UIViewController {
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
+        tableView.separatorColor = UIColor(white: 1, alpha: 0)
+        tableView.backgroundColor = .white
         self.tableView = tableView
     }
     
@@ -126,15 +128,4 @@ extension ProfileController: UITableViewDataSource {
 // ---------------------------------------------------------------------------------------------
 
 extension ProfileController: UITableViewDelegate {
-    
-    // Get titles for sections
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Account"
-    }
-    
-    // Select cell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Immidiatelly deselect cell
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
