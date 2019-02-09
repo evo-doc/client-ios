@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Creates UITableViewCell representing Text value
+ */
 class UICellTitleText: UITableViewCell {
     // Data
     // ---------------------------------------------------------------------------------------------
@@ -27,10 +30,11 @@ class UICellTitleText: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(key: String, value: String) {
+    func setData(key: String, value: String) -> UICellTitleText {
         self.cellKey = key;
         self.cellValue = value;
         setupView();
+        return self;
     }
     
     

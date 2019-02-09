@@ -39,5 +39,32 @@ class ProjectAPI {
                 }
         }
     }
+    
+    static func getProject(
+        id: Int,
+        callback: @escaping ((ProjectModel) -> ())) {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/projects/\(id)"),
+            method: .get,
+            encoding: JSONEncoding.default,
+            headers: headers
+            ).responseJSON { response in
+                if let data = response.data {
+                    do {
+                        let jsonDecoder = JSONDecoder()
+                        let project = try
+                            jsonDecoder.decode(ProjectModel.self, from: data);
+                        callback(project)
+                    } catch {
+                        print(error)
+                        Utilities.viewAlert(title: "Project load error", message: "Problem occured during loading project.")
+                    }
+                }
+            }
+    }
 }
 

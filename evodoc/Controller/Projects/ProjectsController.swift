@@ -70,6 +70,7 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell();
         }
         
+        cell.id = project.number
         cell.name = project.name;
         cell.desc = project.text;
         
@@ -77,6 +78,23 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selected = data.projects.data[indexPath.row];
+        let controller = ProjectController();
+    
+        ProjectAPI.getProject(id: selected.number, callback: {
+            data in
+            controller.projectModel = data;
+            ProjectCellModel.cells.removeAll();
+
+            let name = UICellTitleText().setData(key: "Project Name", value: data.name);
+            ProjectCellModel.cells.append(name);
+            
+            let description = UICellTitleText().setData(key: "Project description", value: data.description);
+            ProjectCellModel.cells.append(description);
+            
+            self.navigationController?.pushViewController(controller, animated: true);
+        });
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

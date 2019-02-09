@@ -9,6 +9,9 @@
 import UIKit
 import SnapKit
 
+/**
+ Creates UITableViewCell with text with arrow at right side of the screen
+ */
 class UICellTextArrow: UITableViewCell {
     // Data
     // ---------------------------------------------------------------------------------------------

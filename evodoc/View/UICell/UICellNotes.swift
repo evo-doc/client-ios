@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Create hint as UITableViewCell
+ */
 class UICellNotes: UITableViewCell {
     // Data
     // ---------------------------------------------------------------------------------------------
@@ -26,9 +29,10 @@ class UICellNotes: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(value: String) {
+    func setData(value: String) -> UICellNotes {
         self.cellValue = value;
         setupView();
+        return self;
     }
     
     

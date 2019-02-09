@@ -21,12 +21,22 @@ final class ProjectTableCellView: UITableViewCell {
         set { descriptionLabel.text = newValue; }
     }
     
+    var id: Int = 0;
+    
     private weak var nameLabel: UILabel!
     private weak var descriptionLabel: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented");
+    }
+    
+    func setupView() {
         let nameLabel = UILabel();
         nameLabel.font = UIFont.preferredFont(forTextStyle: .headline);
         contentView.addSubview(nameLabel);
@@ -48,10 +58,6 @@ final class ProjectTableCellView: UITableViewCell {
             make.bottom.lessThanOrEqualToSuperview().inset(5)
         }
         self.descriptionLabel = descriptionLabel
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented");
     }
     
     override func prepareForReuse() {

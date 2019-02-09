@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Creates UITableViewCell with input
+ */
 class UICellTitleInput: UITableViewCell {
     // Data
     // ---------------------------------------------------------------------------------------------
@@ -26,10 +29,11 @@ class UICellTitleInput: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(key: String, value: String) {
+    func setData(key: String, value: String) -> UICellTitleInput {
         self.cellKey = key;
         self.cellValue = value;
         setupView();
+        return self;
     }
     
     

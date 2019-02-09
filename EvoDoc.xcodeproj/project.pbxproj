@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31423BC5220CD7EC00BAF451 /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31423BC4220CD7EC00BAF451 /* ProjectController.swift */; };
+		31423BC7220CD88900BAF451 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31423BC6220CD88900BAF451 /* ProjectView.swift */; };
+		31423BC9220CDBBF00BAF451 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31423BC8220CDBBF00BAF451 /* ProjectModel.swift */; };
 		540534242209D42600FD431D /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540534232209D42600FD431D /* DocumentationView.swift */; };
 		54053426220A176000FD431D /* PackagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053425220A175F00FD431D /* PackagesView.swift */; };
 		54053428220A21C500FD431D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053427220A21C500FD431D /* AboutView.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31423BC4220CD7EC00BAF451 /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
+		31423BC6220CD88900BAF451 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		31423BC8220CDBBF00BAF451 /* ProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
 		540534232209D42600FD431D /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		54053425220A175F00FD431D /* PackagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesView.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 			children = (
 				5405343E220BB33300FD431D /* ProjectListView.swift */,
 				54053440220BB34B00FD431D /* ProjectTableCellView.swift */,
+				31423BC6220CD88900BAF451 /* ProjectView.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				54053443220BB37500FD431D /* ProjectListModel.swift */,
+				31423BC8220CDBBF00BAF451 /* ProjectModel.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				54F98FDA220901000030ED4C /* ProjectsController.swift */,
+				31423BC4220CD7EC00BAF451 /* ProjectController.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -516,7 +525,10 @@
 				54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
 				54053446220C49A800FD431D /* ProfileAPI.swift in Sources */,
+				31423BC5220CD7EC00BAF451 /* ProjectController.swift in Sources */,
+				31423BC7220CD88900BAF451 /* ProjectView.swift in Sources */,
 				540534242209D42600FD431D /* DocumentationView.swift in Sources */,
+				31423BC9220CDBBF00BAF451 /* ProjectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6MT3VB3A8;
 				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -674,6 +687,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N6MT3VB3A8;
 				INFOPLIST_FILE = evodoc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
