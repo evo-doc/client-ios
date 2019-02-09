@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AboutController.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 26/12/2018.
@@ -10,17 +10,15 @@ import UIKit
 import SnapKit
 
 class AboutController: UIViewController {
-    
+    // Data
+    // ---------------------------------------------------------------------------------------------
     var contentView: AboutView!;
     
+    // Lifecycle
     // ---------------------------------------------------------------------------------------------
-    // Lifecycle functions
-    // ---------------------------------------------------------------------------------------------
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         self.title = "About Us";
-        
         view.backgroundColor = .white;
         
         let contentView = AboutView();
@@ -31,25 +29,12 @@ class AboutController: UIViewController {
         }
         self.contentView = contentView;
         
-        setGestures()
+        setGestures();
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
+
+    // Gestures
     // ---------------------------------------------------------------------------------------------
-    //
-    // ---------------------------------------------------------------------------------------------
-    
     func setGestures() {
         // Github Org
         let gestLinkGithubOrg = UITapGestureRecognizer(target: self, action: #selector(self.linkSafariGithubOrg))

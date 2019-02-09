@@ -10,13 +10,10 @@ import UIKit
 import SnapKit
 
 class PackagesController: UIViewController {
-    
-    // ---------------------------------------------------------------------------------------------
     // Lifecycle functions
     // ---------------------------------------------------------------------------------------------
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         self.title = "Packages";
         
         let contentView = PackagesView();
@@ -26,19 +23,10 @@ class PackagesController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.navigationController?.navigationBar.topItem?.title = "Packages"
     }
-    
-    // ---------------------------------------------------------------------------------------------
-    //
-    // ---------------------------------------------------------------------------------------------
-    
 }
 
