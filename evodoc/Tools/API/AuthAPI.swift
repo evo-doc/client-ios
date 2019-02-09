@@ -8,19 +8,13 @@
 
 import Alamofire
 
-struct AuthAPISignInSuccessModel : Codable {
-    var token: String;
-    var username: String;
-}
-
-
 class AuthAPI {
     // Send authorization data to get token
     // ---------------------------------------------------------------------------------------------
     static func postSignIn(
         login: String,
         password: String,
-        callback: @escaping ((AuthAPISignInSuccessModel) -> ())
+        callback: @escaping ((AuthAPISignInModel) -> ())
         ) {
         
         Alamofire.request(
@@ -36,7 +30,7 @@ class AuthAPI {
                 if let data = response.data {
                     do {
                         let jsonDecoder = JSONDecoder()
-                        let auth = try jsonDecoder.decode(AuthAPISignInSuccessModel.self, from: data)
+                        let auth = try jsonDecoder.decode(AuthAPISignInModel.self, from: data)
                         
                         callback(auth)
                     } catch {
@@ -80,7 +74,7 @@ class AuthAPI {
         email: String,
         username: String,
         password: String,
-        callback: @escaping ((AuthAPISignInSuccessModel) -> ())
+        callback: @escaping ((AuthAPISignInModel) -> ())
         ) {
         
         Alamofire.request(
@@ -97,7 +91,7 @@ class AuthAPI {
                 if let data = response.data {
                     do {
                         let jsonDecoder = JSONDecoder()
-                        let auth = try jsonDecoder.decode(AuthAPISignInSuccessModel.self, from: data)
+                        let auth = try jsonDecoder.decode(AuthAPISignInModel.self, from: data)
                         
                         callback(auth)
                     } catch {

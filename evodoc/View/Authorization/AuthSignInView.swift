@@ -9,12 +9,15 @@
 import UIKit
 
 class AuthSignInView: UIView {
-    
+    // Data
+    // ---------------------------------------------------------------------------------------------
     var inputLogin: UITextField!;
     var inputPass: UITextField!;
     var buttonSignIn: UIButton!;
     var labelSignUp: UILabel!;
     
+    // Init
+    // ---------------------------------------------------------------------------------------------
     override init(frame: CGRect) {
         super.init(frame: frame);
         

@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 
 class AuthSignInController: UIViewController {
-    
+    // Data
+    // ---------------------------------------------------------------------------------------------
     let authSignInView = AuthSignInView();
     
+
+    // Lifecycle
     // ---------------------------------------------------------------------------------------------
-    // Lifecycle functions
-    // ---------------------------------------------------------------------------------------------
-    
     override func viewDidLoad() {
         super.viewDidLoad();
         view.backgroundColor = PaletteConfig.background;
@@ -29,29 +29,25 @@ class AuthSignInController: UIViewController {
         self.setGestures();
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(animated);
         
         // Hide Navbar
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated);
         // Rotation disable
-        Utilities.rotationDisable()
+        Utilities.rotationDisable();
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Rotation enable
-        Utilities.rotationEnable()
+        Utilities.rotationEnable();
     }
 
     
-    // ---------------------------------------------------------------------------------------------
     // Gestures
     // ---------------------------------------------------------------------------------------------
-    
     func setGestures(){
         // Sign Up
         let gestSignUp = UITapGestureRecognizer(target: self, action: #selector(self.gotoSignUp))
@@ -76,15 +72,15 @@ class AuthSignInController: UIViewController {
         AuthAPI.postSignIn(login: login, password: password, callback: {
             data in
             // Save token
-            UserDefaults.standard.set(data.token, forKey: "token")
-            UserDefaults.standard.set(data.username, forKey: "username")
+            UserDefaults.standard.set(data.token, forKey: "token");
+            UserDefaults.standard.set(data.username, forKey: "username");
             
             // Empty form
             self.authSignInView.inputLogin.text = "";
             self.authSignInView.inputPass.text = "";
             
             // Redirect
-            self.navigationController?.pushViewController(DashboardController(), animated: true);
+            self.navigationController?.popToRootViewController(animated: false)
         })
     }
 }

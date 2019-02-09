@@ -43,7 +43,6 @@ class SettingsController: UIViewController {
         super.viewWillAppear(animated);
         
         // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated);
         self.navigationController?.navigationBar.topItem?.title = "Settings";
         
         // Update table data

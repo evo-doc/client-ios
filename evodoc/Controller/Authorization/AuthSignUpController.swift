@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 
 class AuthSignUpController: UIViewController {
-    
+    // Data
+    // ---------------------------------------------------------------------------------------------
     let authSignUpView = AuthSignUpView();
     
-    // ---------------------------------------------------------------------------------------------
+
     // Lifecycle functions
     // ---------------------------------------------------------------------------------------------
-    
     override func viewDidLoad() {
         super.viewDidLoad();
         view.backgroundColor = PaletteConfig.background;
@@ -29,29 +29,25 @@ class AuthSignUpController: UIViewController {
         self.setGestures();
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(animated);
         
         // Hide Navbar
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated);
         // Rotation disable
-        Utilities.rotationDisable()
+        Utilities.rotationDisable();
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Rotation enable
-        Utilities.rotationEnable()
+        Utilities.rotationEnable();
     }
     
     
-    // ---------------------------------------------------------------------------------------------
     // Gestures
     // ---------------------------------------------------------------------------------------------
-    
     func setGestures(){
         // Sign Up
         let gestSignUp = UITapGestureRecognizer(target: self, action: #selector(self.gotoSignIn))
@@ -81,7 +77,7 @@ class AuthSignUpController: UIViewController {
             UserDefaults.standard.set(data.username, forKey: "username")
             
             // Redirect
-            self.navigationController?.pushViewController(DashboardController(), animated: true);
+            self.navigationController?.popToRootViewController(animated: false)
         })
     }
 }

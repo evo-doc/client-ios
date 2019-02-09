@@ -32,7 +32,7 @@
 		54053465220E04E800FD431D /* UICellNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053464220E04E800FD431D /* UICellNotes.swift */; };
 		54053467220F1CCF00FD431D /* ProfileModel copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053466220F1CCF00FD431D /* ProfileModel copy.swift */; };
 		54053469220F221200FD431D /* ProfileAPIProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053468220F221200FD431D /* ProfileAPIProfileModel.swift */; };
-		5445738122075682009F2416 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738022075682009F2416 /* AuthModel.swift */; };
+		5405346B220F33B700FD431D /* AuthAPISignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5405346A220F33B700FD431D /* AuthAPISignInModel.swift */; };
 		5445738722076D35009F2416 /* AuthSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738622076D35009F2416 /* AuthSignInController.swift */; };
 		5445738A22077940009F2416 /* PaletteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738922077940009F2416 /* PaletteConfig.swift */; };
 		5445738C2207886F009F2416 /* AuthSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5445738B2207886F009F2416 /* AuthSignInView.swift */; };
@@ -81,7 +81,7 @@
 		54053464220E04E800FD431D /* UICellNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICellNotes.swift; sourceTree = "<group>"; };
 		54053466220F1CCF00FD431D /* ProfileModel copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileModel copy.swift"; sourceTree = "<group>"; };
 		54053468220F221200FD431D /* ProfileAPIProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPIProfileModel.swift; sourceTree = "<group>"; };
-		5445738022075682009F2416 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		5405346A220F33B700FD431D /* AuthAPISignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPISignInModel.swift; sourceTree = "<group>"; };
 		5445738622076D35009F2416 /* AuthSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInController.swift; sourceTree = "<group>"; };
 		5445738922077940009F2416 /* PaletteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteConfig.swift; sourceTree = "<group>"; };
 		5445738B2207886F009F2416 /* AuthSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignInView.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		54053454220C599F00FD431D /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				5445738022075682009F2416 /* AuthModel.swift */,
+				5405346A220F33B700FD431D /* AuthAPISignInModel.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -519,7 +519,7 @@
 				54F98FDB220901000030ED4C /* ProjectsController.swift in Sources */,
 				5445738722076D35009F2416 /* AuthSignInController.swift in Sources */,
 				5405342E220B224500FD431D /* UICellTextArrow.swift in Sources */,
-				5445738122075682009F2416 /* AuthModel.swift in Sources */,
+				5405346B220F33B700FD431D /* AuthAPISignInModel.swift in Sources */,
 				54F98FDD220901310030ED4C /* PackagesController.swift in Sources */,
 				54053469220F221200FD431D /* ProfileAPIProfileModel.swift in Sources */,
 				54053448220C4CB300FD431D /* ProfileController.swift in Sources */,
