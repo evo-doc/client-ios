@@ -11,106 +11,96 @@ import UIKit
 import SnapKit
 
 class ProfileController: UIViewController {
-    
-    // ---------------------------------------------------------------------------------------------
     // Data
     // ---------------------------------------------------------------------------------------------
+    var tableView: UITableView!;
     
-    var tableView: UITableView!
     
+    // Lifecycle
     // ---------------------------------------------------------------------------------------------
-    // Lifecycle functions
-    // ---------------------------------------------------------------------------------------------
-    
     override func loadView() {
-        super.loadView()
-        self.title = "Profile"
+        super.loadView();
+        self.title = "Profile";
         
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .grouped);
         view.addSubview(tableView);
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
-        tableView.separatorColor = UIColor(white: 1, alpha: 0)
-        tableView.backgroundColor = .white
-        self.tableView = tableView
+        tableView.separatorColor = UIColor(white: 1, alpha: 0);
+        tableView.backgroundColor = .white;
+        self.tableView = tableView;
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
         // Set data source
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.dataSource = self;
+        tableView.delegate = self;
         
         // Register all cell types used in table
-        tableView.register(UICellTitleText.self, forCellReuseIdentifier: UICellTitleText.identifier)
-        tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
+        tableView.register(UICellTitleText.self, forCellReuseIdentifier: UICellTitleText.identifier);
+        tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier);
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(animated);
         
-        self.update()
+        // Update table data
+        self.update();
         
         // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
         
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.gotoEdit))
+        // Right button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .plain,
+            target: self,
+            action: #selector(self.gotoEdit));
     }
     
-    // ---------------------------------------------------------------------------------------------
+    
     // Gestures
     // ---------------------------------------------------------------------------------------------
-    
     @objc func gotoEdit(){
         navigationController?.pushViewController(ProfileEditController(), animated: true);
     }
     
-    
-    // ---------------------------------------------------------------------------------------------
+
     // Methods
     // ---------------------------------------------------------------------------------------------
-    
+
+    /**
+     Update the whole table. Remove all old table cells and render new.
+     */
     func update() {
         ProfileAPI.getProfile {
             data in
             ProfileModel.cells.removeAll();
+            ProfileModel.cells.append(contentsOf:
+                [
+                    ProfileCellAvatarView().setData(hash: data.avatar),
+                    UICellTitleText().setData(key: "Name", value: data.name ?? ""),
+                    UICellTitleText().setData(key: "Username", value: data.username),
+                    UICellTitleText().setData(key: "E-mail", value: data.email),
+                    UICellTitleText().setData(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!)
+                ]
+            );
             
-            let avatar = ProfileCellAvatarView();
-            avatar.setHash(hash: data.avatar);
-            ProfileModel.cells.append(avatar);
-            
-            let name = UICellTitleText();
-            name.setData(key: "Name", value: data.name ?? "");
-            ProfileModel.cells.append(name);
-            
-            let username = UICellTitleText();
-            username.setData(key: "Username", value: data.username);
-            ProfileModel.cells.append(username);
-            
-            let email = UICellTitleText();
-            email.setData(key: "E-mail", value: data.email);
-            ProfileModel.cells.append(email);
-            
-            let token = UICellTitleText();
-            token.setData(key: "Private token", value: (UserDefaults.standard.value(forKey: "token") as? String)!);
-            ProfileModel.cells.append(token);
-            
-            self.tableView.reloadData()
+            self.tableView.reloadData();
         }
     }
 
 }
 
 
-// ---------------------------------------------------------------------------------------------
-// Table Data Source
-// ---------------------------------------------------------------------------------------------
-
-extension ProfileController: UITableViewDataSource {
+// -------------------------------------------------------------------------------------------------
+// Table Extension
+// -------------------------------------------------------------------------------------------------
+extension ProfileController: UITableViewDataSource, UITableViewDelegate {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ProfileModel.cells.count;
@@ -130,11 +120,4 @@ extension ProfileController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }
-}
-
-// ---------------------------------------------------------------------------------------------
-// Table Delegate
-// ---------------------------------------------------------------------------------------------
-
-extension ProfileController: UITableViewDelegate {
 }

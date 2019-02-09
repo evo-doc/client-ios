@@ -1,5 +1,5 @@
 //
-//  DocumentationView.swift
+//  PackagesView.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 05/02/2019.
@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 
 class PackagesView: UIScrollView {
-    
+    // Init
+    // ---------------------------------------------------------------------------------------------
     override init(frame: CGRect) {
         super.init(frame: frame)
         

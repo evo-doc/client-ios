@@ -79,6 +79,10 @@ class AuthSignInController: UIViewController {
             UserDefaults.standard.set(data.token, forKey: "token")
             UserDefaults.standard.set(data.username, forKey: "username")
             
+            // Empty form
+            self.authSignInView.inputLogin.text = "";
+            self.authSignInView.inputPass.text = "";
+            
             // Redirect
             self.navigationController?.pushViewController(DashboardController(), animated: true);
         })

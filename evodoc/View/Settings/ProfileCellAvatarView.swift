@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  ProfileCellAvatarView.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 07/02/2019.
@@ -28,18 +28,20 @@ class ProfileCellAvatarView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Methods
-    // ---------------------------------------------------------------------------------------------
-    func setHash(hash: String) {
+    func setData(hash: String) -> ProfileCellAvatarView {
         self.avatarHash = hash;
         setupView();
+        return self;
     }
+    
+    // Methods
+    // ---------------------------------------------------------------------------------------------
     
     func setupView() {
         
         let imageAvatar = UIImageView();
         
-        let url = URL(string: "https://www.gravatar.com/avatar/" + self.avatarHash + "?d=identicon&f=y&s=180")
+        let url = URL(string: "https://www.gravatar.com/avatar/" + self.avatarHash + "?d=identicon&f=y&s=200")
         let data = try? Data(contentsOf: url!)
         
         if let imageData = data {

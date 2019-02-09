@@ -10,17 +10,18 @@ import UIKit
 import SnapKit
 
 class DocumentationView: UIScrollView {
-    
+    // Init
+    // ---------------------------------------------------------------------------------------------
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         // Create items
         let screenSignIn = UIImageView();
         screenSignIn.image = UIImage(named: "screenSignIn");
-        screenSignIn.contentMode = .scaleAspectFit
+        screenSignIn.contentMode = .scaleAspectFit;
         let screenSettings = UIImageView();
         screenSettings.image = UIImage(named: "screenSettings");
-        screenSettings.contentMode = .scaleAspectFit
+        screenSettings.contentMode = .scaleAspectFit;
   
 
         // Create Stack
@@ -37,8 +38,8 @@ class DocumentationView: UIScrollView {
         )
         
         self.addSubview(stack)
-        stack.layoutMargins = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15)
-        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 30, left: 15, bottom: 30, right: 15);
+        stack.isLayoutMarginsRelativeArrangement = true;
         stack.snp.makeConstraints{
             make in
             make.edges.equalToSuperview()

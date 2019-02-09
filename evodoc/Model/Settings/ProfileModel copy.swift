@@ -1,5 +1,5 @@
 //
-//  ProfileModel.swift
+//  ProfileEditModel.swift
 //  EvoDoc
 //
 //  Created by Sergey Dunaevskiy on 07/02/2019.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ProfileModel {
+class ProfileEditModel {
     static var cells: [UITableViewCell] = [];
 }

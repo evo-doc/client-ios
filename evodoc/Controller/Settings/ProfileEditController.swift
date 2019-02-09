@@ -11,97 +11,65 @@ import UIKit
 import SnapKit
 
 class ProfileEditController: UIViewController {
-    
-    // ---------------------------------------------------------------------------------------------
     // Data
     // ---------------------------------------------------------------------------------------------
+    var tableView: UITableView!;
     
-    var tableView: UITableView!
     
+    // Lifecycle
     // ---------------------------------------------------------------------------------------------
-    // Lifecycle functions
-    // ---------------------------------------------------------------------------------------------
-    
     override func loadView() {
-        super.loadView()
-        self.title = "Edit profile"
+        super.loadView();
+        self.title = "Edit profile";
         
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .grouped);
         view.addSubview(tableView);
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         tableView.allowsSelection = false;
-        tableView.backgroundColor = .white
-        tableView.allowsMultipleSelection = false
-        tableView.separatorStyle = .none
-        self.tableView = tableView
+        tableView.backgroundColor = .white;
+        tableView.allowsMultipleSelection = false;
+        tableView.separatorStyle = .none;
+        self.tableView = tableView;
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
         // Set data source
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.dataSource = self;
+        tableView.delegate = self;
         
         // Register all cell types used in table
-        tableView.register(UICellTitleInput.self, forCellReuseIdentifier: UICellTitleInput.identifier)
-        tableView.register(ProfileCellAvatarView.self, forCellReuseIdentifier: ProfileCellAvatarView.identifier)
-        tableView.register(UICellNotes.self, forCellReuseIdentifier: UICellNotes.identifier)
+        tableView.register(UICellTitleInput.self, forCellReuseIdentifier: UICellTitleInput.identifier);
+        tableView.register(UICellNotes.self, forCellReuseIdentifier: UICellNotes.identifier);
         
-        
-        ProfileAPI.getProfile {
-            data in
-            ProfileModel.cellsForEdit.removeAll();
-            
-            let name = UICellTitleInput();
-            name.setData(key: "Name", value: data.name ?? "");
-            ProfileModel.cellsForEdit.append(name);
-            
-            let nameNotes = UICellNotes();
-            nameNotes.setData(value: "A name should contain only letters.");
-            ProfileModel.cellsForEdit.append(nameNotes);
-            
-            let username = UICellTitleInput();
-            username.setData(key: "Username", value: data.username);
-            ProfileModel.cellsForEdit.append(username);
-            
-            let usernameNotes = UICellNotes();
-            usernameNotes.setData(value: "A username should contain only letters and numbers. All users should have their own unique username.");
-            ProfileModel.cellsForEdit.append(usernameNotes);
-            
-            let email = UICellTitleInput();
-            email.setData(key: "E-mail", value: data.email);
-            ProfileModel.cellsForEdit.append(email);
-            
-            let emailNotes = UICellNotes();
-            emailNotes.setData(value: "E.g.: user@example.com. The email is unique per system.");
-            ProfileModel.cellsForEdit.append(emailNotes);
-            
-            self.tableView.reloadData()
-        }
+        // Update table data
+        update();
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(animated);
         
         // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
         
-        navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(self.saveData))
+        // Right button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Save",
+            style: .plain,
+            target: self,
+            action: #selector(self.saveData));
     }
     
-    // ---------------------------------------------------------------------------------------------
+    
     // Gestures
     // ---------------------------------------------------------------------------------------------
-    
     @objc func saveData(){
-        
-        let name = (ProfileModel.cellsForEdit[0] as! UICellTitleInput).getValue();
-        let username = (ProfileModel.cellsForEdit[2] as! UICellTitleInput).getValue();
-        let email = (ProfileModel.cellsForEdit[4] as! UICellTitleInput).getValue();
+        let name = (ProfileEditModel.cells[0] as! UICellTitleInput).getValue();
+        let username = (ProfileEditModel.cells[2] as! UICellTitleInput).getValue();
+        let email = (ProfileEditModel.cells[4] as! UICellTitleInput).getValue();
         
         ProfileAPI.saveProfile(
             name: name,
@@ -114,24 +82,49 @@ class ProfileEditController: UIViewController {
                 } else {
                     Utilities.viewAlert(title: "Unable to update", message: "Some data are too short or non unique.")
                 }
-        })
+        });
+    }
+    
+    // Methods
+    // ---------------------------------------------------------------------------------------------
+    
+    /**
+     Update the whole table. Remove all old table cells and render new.
+     */
+    func update() {
+        ProfileAPI.getProfile {
+            data in
+            
+            ProfileEditModel.cells.removeAll();
+            ProfileEditModel.cells.append(contentsOf:
+                [
+                    UICellTitleInput().setData(key: "Name", value: data.name ?? ""),
+                    UICellNotes().setData(value: "A name should contain only letters."),
+                    UICellTitleInput().setData(key: "Username", value: data.username),
+                    UICellNotes().setData(value: "A username should contain only letters and numbers. All users should have their own unique username."),
+                    UICellTitleInput().setData(key: "E-mail", value: data.email),
+                    UICellNotes().setData(value: "E.g.: user@example.com. The email is unique per system.")
+                ]
+            );
+            
+            self.tableView.reloadData();
+        }
     }
 }
 
 
 // ---------------------------------------------------------------------------------------------
-// Table Data Source
+// Table Extension
 // ---------------------------------------------------------------------------------------------
-
-extension ProfileEditController: UITableViewDataSource {
+extension ProfileEditController: UITableViewDataSource, UITableViewDelegate {
     // Get number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ProfileModel.cellsForEdit.count;
+        return ProfileEditModel.cells.count;
     }
     
     // Create cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return ProfileModel.cellsForEdit[indexPath.row];
+        return ProfileEditModel.cells[indexPath.row];
     }
     
     // Remove sctions
@@ -143,11 +136,4 @@ extension ProfileEditController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil;
     }
-}
-
-// ---------------------------------------------------------------------------------------------
-// Table Delegate
-// ---------------------------------------------------------------------------------------------
-
-extension ProfileEditController: UITableViewDelegate {
 }
