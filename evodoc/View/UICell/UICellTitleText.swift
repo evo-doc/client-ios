@@ -44,23 +44,18 @@ class UICellTitleText: UITableViewCell {
         let keyLabel = UILabel();
         keyLabel.font = keyLabel.font.bold;
         keyLabel.text = self.cellKey;
+        keyLabel.numberOfLines = 0;
         
         let valueLabel = UILabel();
         valueLabel.text = self.cellValue;
         valueLabel.numberOfLines = 0;
         
-        contentView.addSubview(keyLabel)
-        keyLabel.snp.makeConstraints{
+        let stack = UtilitiesUI.createVerStack(views: keyLabel, valueLabel)
+        contentView.addSubview(stack)
+        stack.spacing = 10
+        stack.snp.makeConstraints{
             make in
-            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 0))
-            make.bottom.lessThanOrEqualToSuperview().inset(5)
-            make.height.equalTo(40)
-        }
-        
-        contentView.addSubview(valueLabel)
-        valueLabel.snp.makeConstraints{
-            make in
-            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 40, left: 15, bottom: 0, right: 0))
+            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 0))
             make.bottom.lessThanOrEqualToSuperview().inset(5)
             make.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
         }
