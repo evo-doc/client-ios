@@ -14,7 +14,7 @@ class ProjectListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame);
-        let projectsList = UITableView(frame: .zero, style: .grouped);
+        let projectsList = UITableView(frame: .zero, style: .plain);
         self.addSubview(projectsList)
         projectsList.snp.makeConstraints { make in
             make.edges.equalToSuperview();
