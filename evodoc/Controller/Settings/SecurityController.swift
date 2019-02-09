@@ -52,31 +52,25 @@ class SecurityController: UIViewController {
             data in
             SecurityModel.cells.removeAll();
             
-            let oldPassword = UICellTitleInput();
-            oldPassword.setData(key: "Old password", value: "");
+            let oldPassword = UICellTitleInput().setData(key: "Old password", value: "");
             oldPassword.isHidden(true);
             SecurityModel.cells.append(oldPassword);
             
-            let oldPasswordNotes = UICellNotes();
-            oldPasswordNotes.setData(value: "Your current password.");
+            let oldPasswordNotes = UICellNotes().setData(value: "Your current password.");
             SecurityModel.cells.append(oldPasswordNotes);
             
-            let newPassword = UICellTitleInput();
-            newPassword.setData(key: "New password", value: "");
+            let newPassword = UICellTitleInput().setData(key: "New password", value: "");
             newPassword.isHidden(true);
             SecurityModel.cells.append(newPassword);
             
-            let newPasswordNotes = UICellNotes();
-            newPasswordNotes.setData(value: "A password should have at least one uppercase, one lowercase and one number.");
+            let newPasswordNotes = UICellNotes().setData(value: "A password should have at least one uppercase, one lowercase and one number.");
             SecurityModel.cells.append(newPasswordNotes);
             
-            let repeatPassword = UICellTitleInput();
-            repeatPassword.setData(key: "Repeat password", value: "");
+            let repeatPassword = UICellTitleInput().setData(key: "Repeat password", value: "");
             repeatPassword.isHidden(true);
             SecurityModel.cells.append(repeatPassword);
             
-            let repeatPasswordNotes = UICellNotes();
-            repeatPasswordNotes.setData(value: "Repeat your new password.");
+            let repeatPasswordNotes = UICellNotes().setData(value: "Repeat your new password.");
             SecurityModel.cells.append(repeatPasswordNotes);
             
             self.tableView.reloadData()
