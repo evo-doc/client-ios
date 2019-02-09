@@ -47,8 +47,9 @@ class UICellTitleInput: UITableViewCell {
         return self.valueLabel.text ?? "";
     }
     
-    func isHidden(_ value: Bool) {
+    func isHidden(_ value: Bool) -> UICellTitleInput {
         self.valueLabel.isSecureTextEntry = value;
+        return self;
     }
     
     

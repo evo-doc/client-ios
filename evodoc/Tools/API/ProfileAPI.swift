@@ -12,7 +12,7 @@ class ProfileAPI {
     // Get Profile
     // ---------------------------------------------------------------------------------------------
     static func getProfile(
-        callback: @escaping ((ProfileAPIGetProfileSuccessModel) -> ())
+        callback: @escaping ((ProfileAPIProfileModel) -> ())
         ) {
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
@@ -28,7 +28,7 @@ class ProfileAPI {
                 if let data = response.data {
                     do {
                         let jsonDecoder = JSONDecoder()
-                        let resdata = try jsonDecoder.decode(ProfileAPIGetProfileSuccessModel.self, from: data)
+                        let resdata = try jsonDecoder.decode(ProfileAPIProfileModel.self, from: data)
                         
                         callback(resdata)
                     } catch {
@@ -53,9 +53,9 @@ class ProfileAPI {
             "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
         ]
         
-        let oldName = (ProfileModel.cellsForEdit[0] as! UICellTitleInput).getOriginalValue();
-        let oldUsername = (ProfileModel.cellsForEdit[2] as! UICellTitleInput).getOriginalValue();
-        let oldEmail = (ProfileModel.cellsForEdit[4] as! UICellTitleInput).getOriginalValue();
+        let oldName = (ProfileEditModel.cells[0] as! UICellTitleInput).getOriginalValue();
+        let oldUsername = (ProfileEditModel.cells[2] as! UICellTitleInput).getOriginalValue();
+        let oldEmail = (ProfileEditModel.cells[4] as! UICellTitleInput).getOriginalValue();
         
         var params: Parameters = [:];
         if(name != oldName) {
