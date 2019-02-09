@@ -27,8 +27,7 @@ class DocumentationController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
-        // Show Navbar
-        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        // Navbar title
         self.navigationController?.navigationBar.topItem?.title = "Documentation";
         
         // Show right button
@@ -37,13 +36,6 @@ class DocumentationController: UIViewController {
             style: .done,
             target: self,
             action: #selector(gotoAboutUs));
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated);
-        
-        // Hide right button
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
     }
     
 

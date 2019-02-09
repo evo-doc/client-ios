@@ -26,7 +26,12 @@ class PackagesController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Navbar title
         self.navigationController?.navigationBar.topItem?.title = "Packages"
+        
+        // Show right button
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
     }
 }
 

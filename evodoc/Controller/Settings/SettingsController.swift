@@ -45,6 +45,9 @@ class SettingsController: UIViewController {
         // Show Navbar
         self.navigationController?.navigationBar.topItem?.title = "Settings";
         
+        // Show right button
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
+        
         // Update table data
         update();
     }

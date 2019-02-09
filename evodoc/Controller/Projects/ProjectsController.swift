@@ -42,9 +42,22 @@ class ProjectsController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Show Navbar
+        // Navbar show
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+        // Navbar title
         self.navigationController?.navigationBar.topItem?.title = "Projects"
+        
+        // Navbar right button
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
+            title: "Create",
+            style: .plain,
+            target: self,
+            action: nil);
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
     }
     
     // ---------------------------------------------------------------------------------------------
