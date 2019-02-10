@@ -37,6 +37,9 @@ class UICellTitleText: UITableViewCell {
         return self;
     }
     
+    func getValue() -> String {
+        return cellValue
+    }
     
     // Methods
     // ---------------------------------------------------------------------------------------------

@@ -12,6 +12,7 @@ class ProjectController: UIViewController {
     
     let projectView = ProjectView();
     var projectModel: ProjectModel!;
+    var projectId: Int!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -38,20 +39,47 @@ class ProjectController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        // Navbar show
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
         
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
+        // Navbar right button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Edit",
-            style: .done,
+            style: .plain,
             target: self,
-            action: nil)
+            action: #selector(editProject))
+        
+        update()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated);
+    @objc func editProject() {
+        EditProjectModel.cells.removeAll()
+        let controller = EditProjectController()
+        let name = (ProjectCellModel.cells[0] as! UICellTitleText).getValue()
+        let description = (ProjectCellModel.cells[1] as! UICellTitleText).getValue()
+        let nameCell = UICellTitleInput().setData(key: "Project name", value: name)
+        let descCell = UICellTextAreaInput().setData(key: "Project description", value: description)
+        EditProjectModel.cells.append(nameCell)
+        EditProjectModel.cells.append(descCell)
+        controller.projectId = self.projectId
         
-        // Hide right button
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
+        navigationController?.pushViewController(controller, animated: true);
+    }
+    
+    func update() {
+        ProjectAPI.getProject(id: self.projectId, callback: {
+            data in
+            self.projectModel = data;
+            ProjectCellModel.cells.removeAll();
+            
+            let name = UICellTitleText().setData(key: "Project Name", value: data.name);
+            ProjectCellModel.cells.append(name);
+            
+            let description = UICellTitleText().setData(key: "Project description", value: data.description);
+            ProjectCellModel.cells.append(description);
+            
+            self.projectView.tableView.reloadData()
+        });
     }
 }
 

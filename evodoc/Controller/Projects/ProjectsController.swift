@@ -106,6 +106,7 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
         ProjectAPI.getProject(id: selected.number, callback: {
             data in
             controller.projectModel = data;
+            controller.projectId = data.id
             ProjectCellModel.cells.removeAll();
 
             let name = UICellTitleText().setData(key: "Project Name", value: data.name);

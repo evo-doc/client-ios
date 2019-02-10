@@ -14,6 +14,9 @@
 		319D5D24220F8A9100B99C14 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D23220F8A9100B99C14 /* CreateProjectView.swift */; };
 		319D5D26220F938800B99C14 /* CreateProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D25220F938800B99C14 /* CreateProjectModel.swift */; };
 		319D5D2822102E9900B99C14 /* UICellTextAreaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D2722102E9900B99C14 /* UICellTextAreaInput.swift */; };
+		319D5D2A2210578400B99C14 /* EditProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D292210578400B99C14 /* EditProjectController.swift */; };
+		319D5D2C221058E300B99C14 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D2B221058E300B99C14 /* EditProjectView.swift */; };
+		319D5D2E22105BD100B99C14 /* EditProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319D5D2D22105BD100B99C14 /* EditProjectModel.swift */; };
 		540534242209D42600FD431D /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540534232209D42600FD431D /* DocumentationView.swift */; };
 		54053426220A176000FD431D /* PackagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053425220A175F00FD431D /* PackagesView.swift */; };
 		54053428220A21C500FD431D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54053427220A21C500FD431D /* AboutView.swift */; };
@@ -67,6 +70,9 @@
 		319D5D23220F8A9100B99C14 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		319D5D25220F938800B99C14 /* CreateProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateProjectModel.swift; path = evodoc/Model/CreateProjectModel.swift; sourceTree = SOURCE_ROOT; };
 		319D5D2722102E9900B99C14 /* UICellTextAreaInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICellTextAreaInput.swift; sourceTree = "<group>"; };
+		319D5D292210578400B99C14 /* EditProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectController.swift; sourceTree = "<group>"; };
+		319D5D2B221058E300B99C14 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		319D5D2D22105BD100B99C14 /* EditProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectModel.swift; sourceTree = "<group>"; };
 		3279A96B9D2D53D7F85B64C7 /* Pods-EvoDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvoDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvoDoc/Pods-EvoDoc.release.xcconfig"; sourceTree = "<group>"; };
 		540534232209D42600FD431D /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		54053425220A175F00FD431D /* PackagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesView.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 				54053440220BB34B00FD431D /* ProjectTableCellView.swift */,
 				31423BC6220CD88900BAF451 /* ProjectView.swift */,
 				319D5D23220F8A9100B99C14 /* CreateProjectView.swift */,
+				319D5D2B221058E300B99C14 /* EditProjectView.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				31423BC8220CDBBF00BAF451 /* ProjectModel.swift */,
 				5405346C220F67FA00FD431D /* ProjectAPICreateModel.swift */,
 				319D5D25220F938800B99C14 /* CreateProjectModel.swift */,
+				319D5D2D22105BD100B99C14 /* EditProjectModel.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				54F98FDA220901000030ED4C /* ProjectsController.swift */,
 				31423BC4220CD7EC00BAF451 /* ProjectController.swift */,
 				317EF182220F105900DFB8F8 /* CreateProjectController.swift */,
+				319D5D292210578400B99C14 /* EditProjectController.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -537,7 +546,9 @@
 				5405342E220B224500FD431D /* UICellTextArrow.swift in Sources */,
 				5405346B220F33B700FD431D /* AuthAPISignInModel.swift in Sources */,
 				317EF183220F105900DFB8F8 /* CreateProjectController.swift in Sources */,
+				319D5D2E22105BD100B99C14 /* EditProjectModel.swift in Sources */,
 				54F98FDD220901310030ED4C /* PackagesController.swift in Sources */,
+				319D5D2C221058E300B99C14 /* EditProjectView.swift in Sources */,
 				54053469220F221200FD431D /* ProfileAPIProfileModel.swift in Sources */,
 				319D5D2822102E9900B99C14 /* UICellTextAreaInput.swift in Sources */,
 				54053448220C4CB300FD431D /* ProfileController.swift in Sources */,
@@ -549,6 +560,7 @@
 				54053467220F1CCF00FD431D /* ProfileEditModel.swift in Sources */,
 				544573922207AAB9009F2416 /* DashboardController.swift in Sources */,
 				319D5D24220F8A9100B99C14 /* CreateProjectView.swift in Sources */,
+				319D5D2A2210578400B99C14 /* EditProjectController.swift in Sources */,
 				54F98FCF2208B6310030ED4C /* ServerConfig.swift in Sources */,
 				54053441220BB34B00FD431D /* ProjectTableCellView.swift in Sources */,
 				549D5B7E21D414CA00A7991B /* AppDelegate.swift in Sources */,
