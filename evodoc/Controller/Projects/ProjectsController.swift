@@ -120,5 +120,25 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // Delete event
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true;
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete;
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        ProjectAPI.deleteProject(
+            id: data.projects.data[indexPath.row].number,
+            callback: { success in
+                if (success) {
+                    self.data.projects.data.remove(at: indexPath.row);
+                    self.projectListView.projectsList.deleteRows(at: [indexPath], with: .automatic);
+                }
+        })
+        
+    }
 }
 
