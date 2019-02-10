@@ -15,6 +15,7 @@ class CreateProjectController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        self.title = "New project";
         
         view.addSubview(createProjectView);
         
@@ -67,11 +68,7 @@ class CreateProjectController: UIViewController {
             contributors: [],
             callback: {
                 success in
-                if success != nil {
-                    self.navigationController?.popViewController(animated: true)
-                } else {
-                    Utilities.viewAlert(title: "Unable to create", message: "Some data are too short or non unique.")
-                }
+                self.navigationController?.popViewController(animated: true)
         })
     }
 }

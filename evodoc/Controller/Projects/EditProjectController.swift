@@ -24,6 +24,7 @@ class EditProjectController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Edit project";
         
         view.addSubview(editProjectView)
         
@@ -47,7 +48,7 @@ class EditProjectController : UIViewController {
         
         // Navbar right button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Edit",
+            title: "Save",
             style: .plain,
             target: self,
             action: #selector(saveData))

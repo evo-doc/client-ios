@@ -50,7 +50,7 @@ class ProjectsController: UIViewController {
         
         // Navbar right button
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
-            title: "Create",
+            title: "New",
             style: .plain,
             target: self,
             action: #selector(createProject));

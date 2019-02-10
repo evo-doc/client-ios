@@ -23,7 +23,7 @@ class CreateProjectView : UIView {
     }
     
     func setupView() {
-        let tableView = UITableView(frame: .zero, style: .grouped);
+        let tableView = UITableView(frame: .zero, style: .plain);
         self.addSubview(tableView);
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
