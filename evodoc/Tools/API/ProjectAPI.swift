@@ -172,4 +172,47 @@ class ProjectAPI {
                 }
         }
     }
+    
+    
+    /**
+     Delete a project
+     
+     # Example call
+     
+     ```
+     ProjectAPI.deleteProject(
+     id: 33,
+     callback: { success in
+             if (success) {
+                print("Good")
+             }
+         }
+     )
+     ```
+     */
+    static func deleteProject(
+        id: Int,
+        callback: @escaping ((Bool) -> ())
+        ){
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + (UserDefaults.standard.value(forKey: "token") as? String ?? "")
+        ]
+        
+        Alamofire.request(
+            ServerConfig.host("/projects/\(id)"),
+            method: .delete,
+            headers: headers
+            )
+            .validate(statusCode: 200...200)
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    callback(true)
+                case .failure:
+                    Utilities.viewAlert(title: "Cannot delete", message: "You are not the owner, you may only cancel your contribution.")
+                    callback(false)
+                }
+        }
+    }
 }

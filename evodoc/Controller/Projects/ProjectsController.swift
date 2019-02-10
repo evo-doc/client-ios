@@ -128,11 +128,15 @@ extension ProjectsController: UITableViewDelegate, UITableViewDataSource {
         return .delete;
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // TODO write remove API task with remove table cell as a callback:
-        {
-            data.projects.data.remove(at: indexPath.row);
-            self.projectListView.projectsList.deleteRows(at: [indexPath], with: .automatic);
-        }()
+        
+        ProjectAPI.deleteProject(
+            id: data.projects.data[indexPath.row].number,
+            callback: { success in
+                if (success) {
+                    self.data.projects.data.remove(at: indexPath.row);
+                    self.projectListView.projectsList.deleteRows(at: [indexPath], with: .automatic);
+                }
+        })
         
     }
 }
