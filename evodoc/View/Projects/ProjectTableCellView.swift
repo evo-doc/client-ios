@@ -42,7 +42,7 @@ final class ProjectTableCellView: UITableViewCell {
         contentView.addSubview(nameLabel);
         nameLabel.snp.makeConstraints {
             make in
-            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 0))
+            make.top.leading.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 15, bottom: 0, right: 15))
             make.bottom.lessThanOrEqualToSuperview().inset(5)
             make.height.equalTo(40)
         }
@@ -54,7 +54,7 @@ final class ProjectTableCellView: UITableViewCell {
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
             make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(15)
+            make.right.equalToSuperview().inset(15)
             make.bottom.lessThanOrEqualToSuperview().inset(5)
         }
         self.descriptionLabel = descriptionLabel
