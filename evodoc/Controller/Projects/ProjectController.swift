@@ -34,6 +34,25 @@ class ProjectController: UIViewController {
         self.projectView.tableView.delegate = self
         self.projectView.tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
+            title: "Edit",
+            style: .done,
+            target: self,
+            action: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated);
+        
+        // Hide right button
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil;
+    }
 }
 
 extension ProjectController: UITableViewDelegate, UITableViewDataSource {

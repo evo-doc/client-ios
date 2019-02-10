@@ -53,11 +53,20 @@ class ProjectsController: UIViewController {
             title: "Create",
             style: .plain,
             target: self,
-            action: nil);
+            action: #selector(createProject));
+        
+        ProjectAPI.getProjects(callback: { data in
+            self.data = data;
+            self.projectListView.projectsList.reloadData();
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
+    }
+    
+    @objc func createProject() {
+        self.navigationController?.pushViewController(CreateProjectController(), animated: true);
     }
     
     // ---------------------------------------------------------------------------------------------
